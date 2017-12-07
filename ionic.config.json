@@ -1,0 +1,8 @@
+{
+  "name": "BanistmoView-Ionic",
+  "app_id": "fb154b09",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

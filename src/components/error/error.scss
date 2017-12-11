@@ -1,3 +1,74 @@
-error {
 
+$AzulBanistmo: rgb(12 , 33, 116);
+$color_letra_error:  rgb(167, 30, 34);
+$colorBack: rgb(249, 223,226);
+
+
+
+.iconError{
+
+    font-size: 42px;
 }
+
+
+
+.BarraError{
+    font-size: 9px;
+    color: $color_letra_error;
+    background: $colorBack;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(221, 182, 172);
+    
+    }
+
+    
+    
+    @media (min-width:400px){        
+        .BarraError{
+            font-size: 13px;
+        }
+        .iconError{
+            font-size: 47px;
+        }        
+    }
+
+    
+    
+    @media (min-width:500px){        
+        .BarraError{
+            font-size: 16px;
+        }
+        .iconError{
+            font-size: 54px;
+        }        
+    }
+
+
+
+
+    
+    @media (min-width:750px){        
+        .BarraError{
+            font-size: 19px;
+        }
+        .iconError{
+            font-size: 60px;
+        }        
+    }
+
+  
+    
+    @media (min-width:1000px){        
+        .BarraError{
+            font-size: 21px;
+        }
+        .iconError{
+            font-size: 64px;
+        }        
+    }
+   
+
+
+
+

@@ -1,3 +1,18 @@
-cabecera {
+.icon-cabecera{
+    height:90px;
+    width:90px;
+}
 
+@media(min-width:412px){
+    .icon-cabecera{
+        height:115px;
+        width:115px;
+    }
+}
+
+@media(min-width:720px){
+    .icon-cabecera{
+        height:150px;
+        width:150px;
+    }
 }

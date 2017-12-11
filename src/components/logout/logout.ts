@@ -1,22 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-/**
- * Generated class for the LogoutComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
-  selector: 'logout',
-  templateUrl: 'logout.html'
+  selector: 'app-logout',
+  templateUrl: './logout.html',
 })
-export class LogoutComponent {
+export class LogoutComponent implements OnInit {
 
-  text: string;
+  constructor() { }
 
-  constructor() {
-    console.log('Hello LogoutComponent Component');
-    this.text = 'Hello World';
+  ngOnInit() {
   }
 
 }

@@ -1,4 +1,114 @@
-<!-- Generated template for the MenuOperadorComponent component -->
-<div>
-  {{text}}
+<div class="container">
+  <app-cabecera></app-cabecera>
+  <div class="row padded">
+    <div class="col-12">
+      <p class="text-center titulo">
+        Menú Operador
+      </p>
+    </div>
+  </div>
+
+  <ul class="nav nav-tabs marged" id="NavBar" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="admin-tab" data-toggle="tab" href="#cupo" role="tab" aria-controls="home" aria-selected="true">
+        Cupo Disponible
+      </a>
+    </li>
+    <li class="nav-item t-yellow">
+      <a class="nav-link " id="repo-tab" data-toggle="tab" href="#repo" role="tab" aria-controls="profile" aria-selected="false">
+        Transacciones
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="cupo" role="tabpanel" aria-labelledby="admin-tab">
+      <div class="row padded contenido ">
+        <br>
+        <div class="container text-center form-group">
+          Bienvenido Juan Carlos
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-4" style=" padding-top: 25px ">Meta mensual:
+              <br>
+              <strong> $400</strong>
+            </div>
+            <div class="col-md-4">
+              <img src="{{semaforo}}" class="semaforo">
+            </div>
+            <div class="col-md-4" style=" padding-top: 25px ">Venta actual:
+              <br>
+              <strong> {{ventas}}</strong>
+            </div>
+          </div>
+
+          <div class="btn-custom-op col-xs-4 col-sm-6 col-md-3 col-lg-3 " *ngIf= mostrarr>
+            <p  style="margin-top: 40px">
+              <br>Compensar</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tab-pane fade" id="repo" role="tabpanel" aria-labelledby="repo-tab">
+    <div class="row padded contenido">
+      <div class="col-xs-12 col-sm-12 col-md-6 btn_img">
+        <p><span class="icon-bank-sign icon "> </span></p>
+        <div class="elemento text-center">
+          Depósito
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 btn_img">
+        <p><span class="icon-burning-dollar-paper-bill icon "> </span></p>
+        <div class="elemento text-center">
+          Recargas
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 btn_img">
+        <p><span class="icon-dollar-bill-through-cash-machine icon "> </span></p>
+        <div class="elemento text-center">
+          Retiros
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 btn_img">
+        <p><span class="icon-waving-dollar-bills icon "> </span></p>
+        <div class="elemento text-center">
+          Pagos
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-2" style="background-color: blue">
+      <p>esto es unn div </p>
+    </div>
+    <div class="col-md-2" style="background-color: rgb(0, 255, 128)">
+      <p>esto es unn div </p>
+    </div>
+    <div class="col-md-2" style="background-color: rgb(247, 117, 11)">
+      <p>esto es unn div </p>
+    </div>
+    <div class="col-md-2" style="background-color: rgb(229, 255, 0)">
+      <p>esto es unn div </p>
+    </div>
+    <div class="col-md-2" style="background-color: rgb(255, 0, 157)">
+      <p>esto es unn div </p>
+    </div>
+    <div class="col-md-2" style="background-color: blue">
+      <p>esto es unn div </p>
+    </div>
+  </div>
+</div> -->

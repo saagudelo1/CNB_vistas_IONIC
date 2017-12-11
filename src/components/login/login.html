@@ -1,4 +1,85 @@
-<!-- Generated template for the LoginComponent component -->
-<div>
-  {{text}}
-</div>
+<!-- section for header and login form  -->
+  
+<section id="login">
+  <div class="container">
+    <div>
+      <!--<img src="../../assets/img/logo.png" />
+      <h1 class="header1">Corresponsal No Bancario</h1>--> 
+      <app-cabecera></app-cabecera>
+      <div class=" col-xs-12">
+        <p class="header2 text-center">A través de este portal usted podrá acceder a su CNB y ofrecer a sus clientes transacciones como retiro, depósito,
+          pagos y recargas</p>
+          <br>
+      </div>
+      <app-error *ngIf= error></app-error>
+      
+      <h3>Iniciar Sesión</h3>
+      <form class="form-wrap" role="form" (ngSubmit)="login()" method="post" id="login-form" autocomplete="off">
+
+        <div class="form-group col-xs-12 col-sm-8 col-md-6 col-lg-4 text-center">
+          <label for="username" class="sr-only">Usuario</label>
+          <input type="text" name="username" id="username" class="form-control textInputF  inputUser " placeholder="Usuario" [(ngModel)] = "username" (change)="Cambio()">
+          
+        </div>
+        <div class="form-group col-xs-12 col-sm-8 col-md-6 col-lg-4 text-center">
+          <label for="key" class="sr-only">Contraseña</label>
+          <input type="password" name="key" id="key" class="form-control textInputF inputPass " placeholder="Contraseña" [(ngModel)] = "password" (change)="Cambio()">
+        </div>
+
+        <div class="btn-custom col-md-2 col-lg-2" (click)="login()">
+          <p class="textBtn">Ingresar</p>          
+          <input type="submit" id="btn-login" style="display:none" value="Ingresar" >
+        </div>
+      </form>
+      <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">¿Olvidó su contraseña?</a>
+      <a  class="forget" routerLink="/Contacto" routerLinkActive="active">Contactenos</a>
+      
+      <hr>
+    </div>
+  </div>
+  <!-- /.container -->
+</section>
+
+<!-- footer -->
+<footer id="footer">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>© Copyright Banistmo S.A. 2017. Todos los Derechos Reservados.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- <p>
+  login works!
+</p>
+
+
+<nav>
+  <p><a routerLink="/Operario"> link Operario</a></p>
+  <p><a routerLink="/Administrador"> link Administrador</a></p>
+  <p><a routerLink="/error"> link error</a></p>
+  <p><a routerLink="/Contacto"> link Contacto</a>  </p>
+  <p><a routerLink="/logout"> link logout</a>  </p>
+
+  <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+  
+  <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+  
+  <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+  
+  <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+  
+  <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+  
+  
+  
+</nav> -->

@@ -1,22 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-/**
- * Generated class for the CabeceraComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
-  selector: 'cabecera',
-  templateUrl: 'cabecera.html'
+  selector: 'app-cabecera',
+  templateUrl: './cabecera.html',
 })
-export class CabeceraComponent {
+export class CabeceraComponent implements OnInit {
 
-  text: string;
+  constructor(private router: Router, ) { }
+  loged: Boolean = false;
+  ngOnInit() {
+    if (this.router.url.toUpperCase().includes("Operario".toUpperCase()) || this.router.url.toUpperCase().includes("Administrador".toUpperCase()))
+      this.loged = true;
+    else
+      this.loged = false;
 
-  constructor() {
-    console.log('Hello CabeceraComponent Component');
-    this.text = 'Hello World';
+
   }
 
 }

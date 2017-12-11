@@ -1,3 +1,248 @@
-login {
+$primaryColor: #00448D;
+$secondColor: #FFD200;
+$secondColor: #ED1B29;
+$colorGreyDark: #333333;
+$colorGrey: #CCCCCC;
+$colorWhite: #ffffff;
+$colorGrey2: #ccc5c52b;
+$colorGreyText: #6d6d6d;
+$colorLightGray: #EEE;
+$rutaFuente: '/assets/fontsLogin/icomoon';
 
+@font-face {
+    font-family: 'icomoon';
+    src:  url($rutaFuente + '.eot?z5lcxq');
+    src:  url($rutaFuente + '.eot?z5lcxq#iefix') format('embedded-opentype'),
+      url($rutaFuente + '.ttf?z5lcxq') format('truetype'),
+      url($rutaFuente + '.woff?z5lcxq') format('woff'),
+      url($rutaFuente + '.svg?z5lcxq#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
+  
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+/*    --------------------------------------------------
+	:: Login Section
+    -------------------------------------------------- */
+    #login {
+        padding-top: 50px
+    }
+
+    .btn.btn-custom {
+        @extend .form-wrap;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .form-wrap {
+        margin: 0 auto;
+        align-content: center;
+        align-items: center;
+        align-self: center;
+    }
+    
+    .form-group {
+        @extend .form-wrap;
+        margin-bottom: 25px;
+    }
+
+    .forget {
+        font-size: 13px;
+        text-align: center;
+        display: block;
+        color: $colorGreyText;
+    }
+
+    .forget:focus
+    .forget:hover {
+        
+        color: $primaryColor;
+    }
+      
+    h1 {
+        color: $primaryColor;
+        text-align: center;
+        font-weight: bold;
+        padding-bottom: 20px;
+    }
+    
+
+    h3 {
+        color: $primaryColor;
+        text-align: center;
+        font-weight: bold;
+        padding-bottom: 20px;
+        font-size: 100%;
+    }
+
+    .header2{
+        font-size: 24px;
+        margin-top: 15px;
+    }
+
+    @media (min-width: 310px) { 
+        .header2{
+            font-size: 12px;
+        }
+    }
+    
+    @media (min-width: 410px) { 
+        .header2{
+            font-size: 17px;
+        }
+    }
+
+    @media (min-width: 768px) { 
+        .header2{
+            font-size: 24px;
+        }
+    }
+
+
+    .header1{
+        font-size: 50px;
+    }
+
+    @media (min-width: 310px) { 
+        .header1{
+            font-size: 22px;
+        }
+    }
+    
+    @media (min-width: 410px) { 
+        .header1{
+            font-size: 30px;
+        }
+    }
+
+    @media (min-width: 768px) { 
+        .header1{
+            font-size: 50px;
+        }
+    }
+    
+    .icon-user:before {
+        content: "\e971";
+        float: left;
+        
+    }
+
+    .icon-lock:before {
+        content: "\e98f";
+    }
+    
+    .img {
+        align-content: center;
+        width: 20%;
+        height: 20%;
+    }
+
+    .textHeader {
+        @extend .form-wrap;
+        font-size: 150%;
+        font-style: courier;
+        width: 70%;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .textInputF {
+        background-color: $colorGrey2;
+        padding: 10px;
+    }
+        
+    
+    
+    
+    
+    /*    --------------------------------------------------
+        :: Inputs & Buttons
+        -------------------------------------------------- */
+    
+    .form-control {
+        color: #212121;
+        @extend .form-wrap;
+    }
+    .btn-custom {
+        @extend .form-wrap;
+        color: $colorWhite;
+        background: url('/assets/img/fondoBoton.png');
+        width: 100%;
+        height: 80px;
+        cursor: pointer;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        /*background-color: $primaryColor;*/
+        -webkit-transition: background-image 0.5s; 
+        transition: background-image 0.5s;
+        text-align: center;
+        text-align-last: center;
+        padding: 5px;
+    }
+    .btn-custom:hover,
+    .btn-custom:focus {
+        @extend .form-wrap;
+        color:white;
+        -webkit-transition: background-image 0.5s; 
+        transition: background-image 0.5s;
+        background-image: url('/assets/img/fondoBotonAmarillo.png');
+        
+    }
+
+    .inputUser{
+        background-image: url('/assets/img/userGrey.png');
+        background-size: 20px 20px;
+        background-position: 5px;
+        background-repeat: no-repeat;
+        padding-left:10%;
+    }
+    .inputPass{
+        background-image: url('/assets/img/lockGrey.png');
+        background-size: 20px 20px;
+        background-position: 5px;
+        background-repeat: no-repeat;
+        padding-left:10%;
+    }
+
+    .spanBtn {
+        @extend .form-wrap;
+    }
+
+    .textBtn {
+        margin-top: 14px;
+    }   
+    
+    /*    --------------------------------------------------
+        :: Footer
+        -------------------------------------------------- */
+     
+    #footer {
+        color: $colorGreyText;
+        font-size: 12px;
+        text-align: center;
+        @extend .form-wrap;
+    }
+    #footer p {
+        margin-bottom: 0;
+    }
+    #footer a {
+        color: inherit;
+    }

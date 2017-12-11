@@ -1,22 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CabeceraComponent} from '../cabecera/cabecera';
 
-/**
- * Generated class for the MenuAdminComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
-  selector: 'menu-admin',
-  templateUrl: 'menu-admin.html'
+  selector: 'app-menu-admin',
+  templateUrl: './menu-admin.html',
 })
-export class MenuAdminComponent {
+export class MenuAdminComponent implements OnInit {
 
-  text: string;
-
-  constructor() {
-    console.log('Hello MenuAdminComponent Component');
-    this.text = 'Hello World';
+  constructor() { }
+  
+  ngOnInit() {
   }
 
 }

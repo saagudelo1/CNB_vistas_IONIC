@@ -1,4 +1,96 @@
-<!-- Generated template for the MenuAdminComponent component -->
-<div>
-  {{text}}
+<div class="container ">
+  <app-cabecera></app-cabecera>
+
+
+  <div class="row padded">
+    <div class="col-12">
+      <p class="text-center titulo">
+        Menú Principal
+      </p>
+    </div>
+  </div>
+
+
+  <ul class="nav nav-tabs marged" id="NavBar" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="home" aria-selected="true">
+        Cupo Disponible
+      </a>
+    </li>
+    <li class="nav-item t-yellow">
+      <a class="nav-link " id="repo-tab" data-toggle="tab" href="#repo" role="tab" aria-controls="profile" aria-selected="false">
+        Reportes
+      </a>
+    </li>
+  </ul>
+
+
+
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+      <div class="row padded contenido">
+        <div class="col-xs-12 col-sm-12 col-md-6 fondo-elemento">
+          <p>
+            <span class="fa fa-users icon" aria-hidden="true"></span>
+          </p>
+          <div class="elemento text-center">
+            CNBP
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6 fondo-elemento">
+          <p>
+            <span class="icon-hand-paper-o icon" aria-hidden="true"></span>
+
+          </p>
+          <div class="elemento text-center">
+            Límites
+          </div>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-md-6 fondo-elemento">
+          <p>
+            <span class="icon-shop icon">
+            </span>
+          </p>
+          <div class="elemento text-center">
+            Sucursal
+          </div>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-md-6 fondo-elemento">
+          <p>
+            <span class="icon-cashier icon">
+            </span>
+
+          </p>
+          <div class="elemento text-center">
+            Caja
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="tab-pane fade" id="repo" role="tabpanel" aria-labelledby="repo-tab">
+      <div class="row padded contenido">
+
+
+        <div class="col-xs-12 col-sm-12 col-md-6 fondo-elemento">
+          <p>
+            <span class="fa fa-bar-chart-o icon " aria-hidden="true"></span>
+          </p>
+          <div class="elemento text-center ">
+            Reportes
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 </div>

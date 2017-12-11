@@ -1,22 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-/**
- * Generated class for the ContactoComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
-  selector: 'contacto',
-  templateUrl: 'contacto.html'
+  selector: 'app-contacto',
+  templateUrl: './contacto.html',
 })
-export class ContactoComponent {
+export class ContactoComponent implements OnInit {
 
-  text: string;
+  constructor() { }
 
-  constructor() {
-    console.log('Hello ContactoComponent Component');
-    this.text = 'Hello World';
+  ngOnInit() {
   }
 
 }

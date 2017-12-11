@@ -1,22 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router/src/router';
 
-/**
- * Generated class for the ErrorComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
-  selector: 'error',
-  templateUrl: 'error.html'
+  selector: 'app-error',
+  templateUrl: './error.html',
 })
-export class ErrorComponent {
-
-  text: string;
+export class ErrorComponent implements OnInit {
 
   constructor() {
-    console.log('Hello ErrorComponent Component');
-    this.text = 'Hello World';
+
+
+   }
+
+
+
+
+  ngOnInit() {
   }
 
 }

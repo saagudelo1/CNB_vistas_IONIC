@@ -1,22 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import {ErrorComponent} from '../error/error';
+import { CabeceraComponent} from '../cabecera/cabecera';
 
-/**
- * Generated class for the LoginComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
-  selector: 'login',
-  templateUrl: 'login.html'
+  selector: 'app-login',
+  templateUrl: './login.html',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  text: string;
+  username: string;
+  password: string;
+  error:boolean=false;
 
-  constructor() {
-    console.log('Hello LoginComponent Component');
-    this.text = 'Hello World';
+  constructor(private route: ActivatedRoute,
+    private router: Router) { }
+
+  ngOnInit() {
   }
 
+
+
+  Cambio(){
+    console.log(this.username);
+    console.log(this.password);
+  }
+
+  /**
+   * Function to validate login
+   */
+  login() {    
+    if(this.username == "admin"){
+      this.router.navigate(['/Administrador']);
+    }else if(this.username == "operador"){
+      this.router.navigate(['/Operario']);
+    }else{
+      this.error=true;
+    }
+  }
 }

@@ -1,3 +1,50 @@
-contacto {
 
+  .centrado {
+    width: 100%; 
+  }
+  .tamañoletra{
+    font-size: 16px;
+    margin-top: 43%;
+    margin-right: 18%;
+    height: 281px;
+    line-height: 23px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font:color #0c0b0b;
+
+  }
+ .fondo{
+  background-image: url(/assets/banco1.png);
+  background-position: left;
+  background-size: 100% 70%;
+  background-repeat: no-repeat;
+  
+ }
+ .boton{
+  text-align: center;
+  text-align-last: center;
+  
+  width: 100%;
+  height: 80px;
+  cursor: pointer;
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  color: white;
+  background-image: url(/assets/fondoBoton.png);
+  -webkit-transition: background-image 0.5s; 
+  transition: background-image 0.5s;
+  
 }
+.boton:hover,
+.boton:focus {
+color:white;
+-webkit-transition: background-image 0.5s; 
+transition: background-image 0.5s;
+background-image: url('/assets/fondoBotonAmarillo.png');
+}  
+
+.textBtn {
+  margin-top: 24px;
+  } 
+  
+

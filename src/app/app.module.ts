@@ -14,6 +14,7 @@ import { ErrorComponent } from '../components/error/error';
 import { ContactoComponent } from '../components/contacto/contacto';
 import { LogoutComponent } from '../components/logout/logout';
 import { CabeceraComponent } from '../components/cabecera/cabecera';
+import { ImprimirComponent } from '../components/imprimir/imprimir';
 
 
 import { MyApp } from './app.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'Contacto', component: ContactoComponent },
   { path: 'error', component: ErrorComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'imprimir', component: ImprimirComponent },
   { path: '**', redirectTo: 'Login', pathMatch: 'full' }
 ];
 
@@ -39,7 +41,8 @@ const routes: Routes = [
     ErrorComponent,
     ContactoComponent,
     LogoutComponent,
-    CabeceraComponent
+    CabeceraComponent,
+    ImprimirComponent
   ],
   imports: [
     BrowserModule,

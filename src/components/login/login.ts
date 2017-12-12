@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit {
    * Function to validate login
    */
   login() {    
+    localStorage.setItem("user",this.username);
+    localStorage.setItem("pass",this.password);
     if(this.username == "admin"){
       this.router.navigate(['/Administrador']);
     }else if(this.username == "operador"){

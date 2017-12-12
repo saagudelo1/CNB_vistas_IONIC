@@ -13,7 +13,7 @@
 
   }
  .fondo{
-  background-image: url(/assets/banco1.png);
+  background-image: url(../assets/banco1.png);
   background-position: left;
   background-size: 100% 70%;
   background-repeat: no-repeat;
@@ -27,10 +27,10 @@
   height: 80px;
   cursor: pointer;
   background-size: contain;
-  background-position: left;
+  background-position: center;
   background-repeat: no-repeat;
   color: white;
-  background-image: url(/assets/fondoBoton.png);
+  background-image: url(../assets/fondoBoton.png);
   -webkit-transition: background-image 0.5s; 
   transition: background-image 0.5s;
   
@@ -40,7 +40,7 @@
 color:white;
 -webkit-transition: background-image 0.5s; 
 transition: background-image 0.5s;
-background-image: url('/assets/fondoBotonAmarillo.png');
+background-image: url('../assets/fondoBotonAmarillo.png');
 }  
 
 .textBtn {

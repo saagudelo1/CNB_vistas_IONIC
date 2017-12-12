@@ -3,9 +3,14 @@ header{
     background-color: #00448c;
     color: white;
 }
-/*!* Font Awesome 4.1.0 by @davegandy - http://fontawesome.io - @fontawesome * License - http://fontawesome.io/license(Font:SIL OFL 1.1,CSS:MIT License) */@font-face {
-    font-family:'FontAwesome';src:url('https://static.hsappstatic.net/content_shared_assets/static-1.3779/fonts/fontawesome-webfont.eot?v=4.1.0');src:url('https://static.hsappstatic.net/content_shared_assets/static-1.3779/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'),url('https://static.hsappstatic.net/content_shared_assets/static-1.3779/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'),url('https://static.hsappstatic.net/content_shared_assets/static-1.3779/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'),url('https://static.hsappstatic.net/content_shared_assets/static-1.3779/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');font-weight:normal;font-style:normal
-}
+/*!* Font Awesome 4.1.0 by @davegandy - http://fontawesome.io - @fontawesome * License - http://fontawesome.io/license(Font:SIL OFL 1.1,CSS:MIT License) */
+@font-face {
+        font-family: 'FontAwesome';
+        src: url('../assets/fonts-awesome/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../assets/fonts-awesome/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../assets/fonts-awesome/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../assets/fonts-awesome/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../assets/fonts-awesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+      
 
 .fa {
     display: inline-block;
@@ -1969,7 +1974,7 @@ header{
 }
 
 
-$ruta-fuente: '/assets/fuentes/icomoon';
+$ruta-fuente: 'assets/fuentes/icomoon';
 
 $Amarillo: rgb(255,228,89);
 $Gris-claro: rgb(244, 244, 245);
@@ -2165,10 +2170,9 @@ div{
 }   
 
 .fondo-elemento{
-    background-image: url('/assets/image/logo-banis.png');
+    background-image: url('../assets/image/logo-banis.png');
     background-position: left;
     background-size: 80% 100%;
     background-repeat: no-repeat;
 
 }
-

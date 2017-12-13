@@ -2,16 +2,18 @@
 
 <section id="login">
   <div class="container">
-    <div>
+   
       <!--<img src="../..assets/img/logo.png" />
       <h1 class="header1">Corresponsal No Bancario</h1>-->
       <app-cabecera></app-cabecera>
-      <div class=" col-xs-12">
-        <p class="header2 text-center">A través de este portal usted podrá acceder a su CNB y ofrecer a sus clientes transacciones como retiro, depósito,
-          pagos y recargas</p>
-        <br>
+      <div class=" col-xs-12" >
+        <p class="header2 text-center">
+          A través de este portal usted podrá acceder a su CNB y ofrecer a sus clientes transacciones como retiro, depósito,
+          pagos y recargas
+        </p>        
       </div>
-      <app-error *ngIf = error></app-error>
+      
+      <app-error *ngIf = error style="border: 2px solid white"></app-error>
 
       <h3>Iniciar Sesión</h3>
       <!--  -->
@@ -63,7 +65,7 @@
       <a class="forget" routerLink="/Contacto" routerLinkActive="active">Contactenos</a>
 
       <hr>
-    </div>
+    
   </div>
   <!-- /.container -->
 </section>

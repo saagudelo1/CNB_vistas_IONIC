@@ -1,33 +1,28 @@
 <div class="container">
-  <app-cabecera></app-cabecera>
-
-
   <!-- nav de menu -->
-  <br>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-          aria-controls="navbar" value="hola">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" value="hola">
           <span class="sr-only">Toggle navigation </span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand ">
+        <p class="navbar-brand ">
           <strong style="color: rgb(0,64,138) ">Menú Operador</strong>
-        </a>
+        </p>
       </div>
       <div id="navbar" class="navbar-collapse collapse" role="tablist">
         <ul class="nav navbar-nav ">
           <li>
-            <a data-toggle="tab" href="#cupo" role="tab" style="color: rgb(0,64,138) ">Cupo disponible</a>
+            <a data-toggle="tab" role="tab" href="#cupoid" (click)="mosBarra(false)" aria-expanded="false" style="color: rgb(0,64,138) ">Cupo disponible</a>
           </li>
           <li>
-            <a data-toggle="tab" role="tab" href="#trans" style="color: rgb(0,64,138) ">Transacciones </a>
+            <a data-toggle="tab" role="tab" href="#trans" (click)="mosBarra(true)" style="color: rgb(0,64,138) ">Transacciones </a>
           </li>
           <li>
-            <a data-toggle="tab" role="tab" href="#ayuda" style="color: rgb(0,64,138) ">Ayuda</a>
+            <a data-toggle="tab" role="tab" href="#ayuda" (click)="mosBarra(true)" style="color: rgb(0,64,138) ">Ayuda</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -42,50 +37,85 @@
     </div>
     <!--/.container-fluid -->
   </nav>
-<!-- barra progresiva  -->
-<p align = right>Cupo inicial: $100 -- Cupo actual: ${{ventas}} </p>
-  <div class="progress">
-    <div class="progress-bar progress-bar-success" [style.width]= barraVerde></div>
-    <div class="progress-bar progress-bar-warning" [style.width]= barraAmarillo></div>
-    <div class="progress-bar progress-bar-danger" [style.width]= barraRojo></div>
-
+  <!-- /nav de menu -->
+  <app-cabecera></app-cabecera>  
+<br>
+  <!-- barra progresiva  -->
+  <div class="container" *ngIf = mostrar>
+      <p align = right>Cupo total: $100 -- Cupo actual: ${{cupo}} </p>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" [style.width] = barraVerde></div>
+        <div class="progress-bar progress-bar-warning" [style.width] = barraAmarillo></div>
+        <div class="progress-bar progress-bar-danger" [style.width] = barraRojo></div>
+      </div>
   </div>
-  <div class="progress progress-striped active">
-    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" [style.width]= barraVerde></div>
+  <!-- /barra progresiva  -->
 
-    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" [style.width]= barraAmarillo></div>
-
-    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" [style.width]= barraRojo></div>
-  </div>
 
 
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade active in" id="cupo" role="tabpanel">
-      <div class="row padded contenido ">
-        <br>
-        <div class="container text-center form-group">
-          Bienvenido Juan Carlos
-          <br>
-          <br>
-          <div class="row">
-            <div class="col-md-4" style=" padding-top: 25px ">Meta mensual:
+    
+    <div class="tab-pane fade active in" id="cupoid" role="tabpanel" >
+      <div class="row padded contenido " >
+        
+        <div class="text-center form-group " style=" width: 100%"> 
+          <h4>{{nombre}}</h4>
+
+          <div class="row" >
+            <div class="col-md-4 col-sm-4 col-xs-12" style=" padding-top: 25px " >Cupo total:
               <br>
-              <strong> $400</strong>
+              <strong> $100</strong>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-4 col-xs-12" >
               <img src="{{semaforo}}" class="semaforo">
             </div>
-            <div class="col-md-4" style=" padding-top: 25px ">Venta actual:
+            <div class="col-md-4 col-sm-4 col-xs-12" style=" padding-top: 25px " >Cupo Actual:
               <br>
-              <strong> {{ventas}}</strong>
+              <strong> {{cupo}}</strong>
             </div>
           </div>
 
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-sm-offset-3 col-md-offset-4 col-lg-offset-4" *ngIf=t rue style="border: 2px solid yellow">
+          <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 col-xs-offset-2 col-sm-offset-3 col-md-offset-4 col-lg-offset-4" *ngIf=true>
             <p  class="btn-custom-op  " style=" padding-top: 22px;">
               Compensar</p>
           </div>
         </div>
+      </div>
+      <h2>Detalle</h2>
+      <div class="table-reponsive" style="color: rgb(0,64,138) ">
+        <table class="table table-striped">
+          <tr class="primary">
+            <th># ID</th>
+            <th>NOMBRE</th>
+            <th>Usuario</th>
+            
+          </tr>
+          <tr>
+            <td>1 </td>
+            <td>nombre1</td>
+            <td>user1</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>nombre2</td>
+            <td>user2</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>nombre3</td>
+            <td>user3</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>nombre4</td>
+            <td>user5</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>nombre5</td>
+            <td>user5</td>
+          </tr>
+        </table>
       </div>
     </div>
 
@@ -127,6 +157,7 @@
     </div>
 
     <div class="tab-pane" id="ayuda" role="tabpanel">
+      <br><br>
       <h1>Favor llame al 911</h1>
     </div>
   </div>

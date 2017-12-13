@@ -1,17 +1,52 @@
 <div class="container ">
+  <!-- nav de menu -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" >
+          <span class="sr-only">Toggle navigation </span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <p class="navbar-brand ">
+          <strong style="color: rgb(0,64,138) ">Menú Administrador</strong>
+        </p>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse" role="tablist">
+        <ul class="nav navbar-nav ">
+          <li>
+            <a data-toggle="tab" role="tab" href="#admin" style="color: rgb(0,64,138) "  >Administración</a>
+          </li>
+          <li>
+            <a data-toggle="tab" role="tab" href="#repo" style="color: rgb(0,64,138) ">Reportes </a>
+          </li>          
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a routerLink="/logout" routerLinkActive="active" style="color: rgb(0,64,138) ">Cerrar sesión
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
   <app-cabecera></app-cabecera>
 
-
+<!-- 
   <div class="row padded">
     <div class="col-12">
       <p class="text-center titulo">
         Menú Principal
       </p>
     </div>
-  </div>
+  </div> -->
 
 
-  <ul class="nav nav-tabs marged" id="NavBar" role="tablist">
+  <!-- <ul class="nav nav-tabs marged" id="NavBar" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="home" aria-selected="true">
         Administración
@@ -22,7 +57,7 @@
         Reportes
       </a>
     </li>
-  </ul>
+  </ul> -->
 
 
 
@@ -89,8 +124,5 @@
       </div>
     </div>
   </div>
-
-
-
 
 </div>

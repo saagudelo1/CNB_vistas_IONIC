@@ -19,17 +19,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
-  Cambio(){
-    console.log(this.username);
-    console.log(this.password);
-  }
-
-  /**
+ /**
    * Function to validate login
    */
-  login() {    
+  login() {   
+    console.log("hola"); 
     if(this.username == "admin"){
       this.router.navigate(['/Administrador']);
     }else if(this.username == "operador"){

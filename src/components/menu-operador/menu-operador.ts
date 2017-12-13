@@ -51,7 +51,10 @@ export class MenuOperadorComponent implements OnInit {
   };
 
   mosBarra(val:boolean){    
-      this.mostrar=val;          
+      this.mostrar=val;  
+      document.getElementById("botonopera").click();        
   }
+
+ 
   
 }

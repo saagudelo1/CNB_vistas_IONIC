@@ -3,7 +3,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" >
+        <button type="button" id="botonadmin" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" >
           <span class="sr-only">Toggle navigation </span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -16,10 +16,10 @@
       <div id="navbar" class="navbar-collapse collapse" role="tablist">
         <ul class="nav navbar-nav ">
           <li>
-            <a data-toggle="tab" role="tab" href="#admin" style="color: rgb(0,64,138) "  >Administración</a>
+            <a data-toggle="tab" role="tab" href="#admin" (click) = "cerrarMenu()" style="color: rgb(0,64,138) "  >Administración</a>
           </li>
           <li>
-            <a data-toggle="tab" role="tab" href="#repo" style="color: rgb(0,64,138) ">Reportes </a>
+            <a data-toggle="tab" role="tab" href="#repo" (click) = "cerrarMenu()" style="color: rgb(0,64,138) ">Reportes </a>
           </li>          
         </ul>
         <ul class="nav navbar-nav navbar-right">

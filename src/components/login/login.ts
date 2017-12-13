@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
 
 
   login() {
+
     let ruta = "/loginStage/login";
     let body = {};
     let params = new HttpParams()
@@ -42,9 +43,12 @@ export class LoginComponent implements OnInit {
       .append("username", this.username)
       .append("password", this.password)
       .append("grant_type", "password");
+
     this._login.PostToServer(ruta, body, params)
       .subscribe(response => {
+
         let valid = false;
+        
         if (response["access_token"] != undefined) {
           valid = true;
         }

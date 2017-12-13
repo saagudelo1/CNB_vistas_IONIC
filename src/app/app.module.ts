@@ -15,8 +15,10 @@ import { ContactoComponent } from '../components/contacto/contacto';
 import { LogoutComponent } from '../components/logout/logout';
 import { CabeceraComponent } from '../components/cabecera/cabecera';
 
-
 import { MyApp } from './app.component';
+import { LoginProvider } from '../providers/login/login';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorProvider } from '../providers/interceptor/interceptor';
 
 
 const routes: Routes = [
@@ -48,7 +50,8 @@ const routes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     FormsModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,7 +60,14 @@ const routes: Routes = [
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LoginProvider,
+    InterceptorProvider,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorProvider,
+      multi: true
+    },
   ]
 })
 export class AppModule {}

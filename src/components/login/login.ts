@@ -19,14 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
-  Cambio(){
-    console.log(this.username);
-    console.log(this.password);
-  }
-
-  /**
+ /**
    * Function to validate login
    */
   login() {    

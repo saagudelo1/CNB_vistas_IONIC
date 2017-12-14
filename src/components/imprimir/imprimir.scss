@@ -24,12 +24,9 @@ $Gris: rgb(64, 65, 66);
 
 }
 .SubTit{
-
     font-size: 13px;
     margin-top: 25px;
-    
-
-    
+    margin-bottom: 25px;
 }
 
 
@@ -40,8 +37,8 @@ $Gris: rgb(64, 65, 66);
 
 .textoParrafo1{
     color: black;
-    font-size: 15px;
-    display: none;
+    font-size: 13px;
+    margin-top: -19px;
     
 
 }
@@ -59,63 +56,37 @@ $Gris: rgb(64, 65, 66);
     font-size: 30px
 }
 
-
-
-
+@media (min-width:500px){        
+    .SubTit{
+        font-size: 16px;    
+    }    
+}
 
 @media (min-width:500px){        
     .SubTit{
-        font-size: 16px;
-    
-    
-    }
-    
+        font-size: 16px;        
+    }    
 }
 
-
-
-@media (min-width:500px){        
-    .SubTit{
-        font-size: 16px;
-        
-    }
-    
-}
-
-@media (min-width:900px){        
+@media (min-width:770px){        
     .textoParrafo1{
         font-size: 16px;
         display: block;
-        
-        
-    }
-    
+        margin-top: -19px;        
+    }    
 }
-@media (min-width:900px){        
-    .textoParrafo{
-        font-size: 16px;
-        display: none;
-        
-        
-    }
-    
-}
+
+
 
 @media (min-width:600px){        
     .ImpIcono{
         font-size: 50px;
         
-        
-        
-    }
-    
+    }    
 }
 @media (min-width:800px){        
     .EstiloTitulo{
         font-size: 27.5px;
-        
-        
-        
     }
     
 }

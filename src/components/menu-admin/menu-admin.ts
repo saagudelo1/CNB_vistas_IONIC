@@ -11,5 +11,8 @@ export class MenuAdminComponent implements OnInit {
   
   ngOnInit() {
   }
+  cerrarMenu(){
+    document.getElementById("botonadmin").click();
+  }
 
 }

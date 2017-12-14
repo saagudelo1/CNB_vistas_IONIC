@@ -13,71 +13,14 @@
       </h1>
 
 
-      <div class="row form-group" >
+      <div class="row form-group" *ngFor = "let c of col1; let i = index" >
         <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: right">
-          <p> Tipo de Operacion: </p>
+          <p> {{c}} </p>
         </div>
         <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: left">
-          <p> {{deposito.Tipo_Op}} </p>
+          <p> {{col2[i]}} </p>
         </div>
       </div>
-
-      <div class="row form-group" >
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: right">
-          <p> Nombre: </p>
-        </div>
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: left">
-          <p>{{deposito.Nombre}} </p>
-        </div>
-      </div>
-
-      <div class="row form-group" >
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: right">
-          <p> Tipo de cuenta: </p>
-        </div>
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: left">
-          <p> {{deposito.Tipo_Cuenta}} </p>
-        </div>
-      </div>
-
-      <div class="row form-group" >
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: right">
-          <p> Numero de cuenta: </p>
-        </div>
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: left">
-          <p>{{deposito.Num_Cuenta}} </p>
-        </div>
-      </div>
-
-      <div class="row form-group" >
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: right">
-          <p> Monto: </p>
-        </div>
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: left">
-          <p>{{deposito.Monto}} </p>
-        </div>
-      </div>
-
-      <div class="row form-group" >
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: right">
-          <p> Numero de comprobante: </p>
-        </div>
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: left">
-          <p> {{deposito.Num_Compro}} </p>
-        </div>
-      </div>
-
-      <div class="row form-group" >
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: right">
-          <p> Numero de Transaccion: </p>
-        </div>
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: left">
-          <p> {{deposito.Num_transa}} </p>
-        </div>
-      </div>
-
-
-
 
       <div class="row vdivide">
         <div class="col-xs-4 col-sm-4 text-center">

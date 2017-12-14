@@ -1,0 +1,121 @@
+$primaryColor: #00448D;
+$secondColor: #FFD200;
+$secondColor: #ED1B29;
+$colorGreyDark: #333333;
+$colorGrey: #CCCCCC;
+$colorWhite: #ffffff;
+$colorGrey2: #ccc5c52b;
+$colorGreyText: #6d6d6d;
+$colorLightGray: #EEE;
+$rutaFuente: '../assets/fontsLogin/icomoon';
+$AzulBanistmo: rgb(12 , 33, 116);
+$AmarilloBanistmo: rgb(255,228,89);
+$Gris: rgb(64, 65, 66);
+
+
+
+
+.EstiloTitulo{
+    color: black;
+    font-size : 17px; 
+}
+.IconosFinal{    
+    font-size : 10px;
+
+}
+.SubTit{
+
+    font-size: 13px;
+    margin-top: 25px;
+    
+
+    
+}
+
+
+.textoParrafo{
+    color: black;
+    font-size: 15px;
+}
+
+.textoParrafo1{
+    color: black;
+    font-size: 15px;
+    display: none;
+    
+
+}
+.Barra-Conf {    
+    padding-bottom: 1em;
+    border-bottom:  solid 1.5px;
+    border-color: $AmarilloBanistmo;
+    margin-top: 5px;    
+
+}
+.ImpIcono {      
+    color: $AzulBanistmo;
+    cursor: pointer;
+    text-align: center;
+    font-size: 30px
+}
+
+
+
+
+
+@media (min-width:500px){        
+    .SubTit{
+        font-size: 16px;
+    
+    
+    }
+    
+}
+
+
+
+@media (min-width:500px){        
+    .SubTit{
+        font-size: 16px;
+        
+    }
+    
+}
+
+@media (min-width:900px){        
+    .textoParrafo1{
+        font-size: 16px;
+        display: block;
+        
+        
+    }
+    
+}
+@media (min-width:900px){        
+    .textoParrafo{
+        font-size: 16px;
+        display: none;
+        
+        
+    }
+    
+}
+
+@media (min-width:600px){        
+    .ImpIcono{
+        font-size: 50px;
+        
+        
+        
+    }
+    
+}
+@media (min-width:800px){        
+    .EstiloTitulo{
+        font-size: 27.5px;
+        
+        
+        
+    }
+    
+}

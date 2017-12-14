@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login';
 import { LogoutComponent } from './logout/logout';
 import { MenuAdminComponent } from './menu-admin/menu-admin';
 import { MenuOperadorComponent } from './menu-operador/menu-operador';
+import { ImprimirComponent } from './imprimir/imprimir';
 @NgModule({
 	declarations: [CabeceraComponent,
     ContactoComponent,
@@ -13,7 +14,8 @@ import { MenuOperadorComponent } from './menu-operador/menu-operador';
     LoginComponent,
     LogoutComponent,
     MenuAdminComponent,
-    MenuOperadorComponent],
+    MenuOperadorComponent,
+    ImprimirComponent],
 	imports: [],
 	exports: [CabeceraComponent,
     ContactoComponent,
@@ -21,6 +23,7 @@ import { MenuOperadorComponent } from './menu-operador/menu-operador';
     LoginComponent,
     LogoutComponent,
     MenuAdminComponent,
-    MenuOperadorComponent]
+    MenuOperadorComponent,
+    ImprimirComponent]
 })
 export class ComponentsModule {}

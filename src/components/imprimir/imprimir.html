@@ -1,0 +1,72 @@
+<div class="container  ">
+  <app-cabecera></app-cabecera>
+  <div>
+    <div class="EstiloTitulo text-center" style=" margin-top: 15px">
+      <p class=" marged Barra-Conf "  style ="color: black"> Confirmacion del deposito </p>
+    </div>
+
+    <div class="text-center ">
+      <h1 class="SubTit" style="color: rgb(12, 33, 116)">
+        <i class="fa fa-check-circle" aria-hidden="true" style="color:rgb(51, 255, 0 ); font-size: 20px"></i>
+        El deposito fue realizado exitosamente</h1>
+      
+        
+        <div class="row" style="margin-top: 15px">
+          <div class=" col-md-6 textoParrafo1" style="text-align: right">
+            <p> Tipo de Operacion: </p>
+            <p> Nombre: </p>
+            <p> Tipo de cuenta: </p>
+            <p> Numero de cuenta: </p>
+            <p> Monto: </p>
+            <p> Numero de comprobante: </p>
+            <p> Numero de Transaccion: </p>
+
+          </div>
+          <div class="col-md-6 textoParrafo1" style="text-align: left">
+            <p> {{deposito.Tipo_Op}} </p>
+            <p> {{deposito.Nombre}} </p>
+            <p> {{deposito.Tipo_Cuenta}} </p>
+            <p> {{deposito.Num_Cuenta}} </p>
+            <p> {{deposito.Monto}} </p>
+            <p> {{deposito.Num_Compro}} </p>
+            <p> {{deposito.Num_transa}} </p>
+
+          </div>
+        </div>
+
+        
+        <div class="text-center" style="margin-top: 15px">
+            <div class="textoParrafo" >
+              <p> Tipo de Operacion: {{deposito.Tipo_Op}} </p>
+              <p> Nombre: {{deposito.Nombre}} </p>
+              <p> Tipo de cuenta:  {{deposito.Tipo_Cuenta}}</p>
+              <p> Numero de cuenta:  {{deposito.Num_Cuenta}}</p>
+              <p> Monto: {{deposito.Monto}}</p>
+              <p> Numero de comprobante: {{deposito.Num_Compro}} </p>
+              <p> Numero de Transaccion: {{deposito.Num_transa}}  </p>
+  
+            </div>
+           
+          </div>
+      
+
+      <div class="row vdivide">
+        <div class="col-sm-4 text-center">
+          <p class=" row marged fa fa-print ImpIcono" aria-hidden="true" style="margin-top: 10px" routerLink="/Login" routerLinkActive="active">
+          </p>
+          <p class=" text-center" style="font-size: 17.5px; margin-top: 15px"> Imprimir Recivo</p>
+        </div>
+        <div class="col-sm-4 text-center">
+          <p class="row marged fa fa-envelope-o ImpIcono" aria-hidden="true" style="margin-top: 10px" routerLink="/Login" routerLinkActive="active">
+          </p>
+          <p class=" text-center" style="font-size: 17.5px; margin-top: 15px"> Enviar por correo</p>
+        </div>
+        <div class=" col-sm-4 text-center">
+          <p class="  row marged fa fa-undo ImpIcono" aria-hidden="true" style="margin-top: 10px" routerLink="/Login" routerLinkActive="active">
+          </p>
+          <p class=" text-center" style="font-size: 17.5px; margin-top: 15px"> Reversar transaccion</p>
+        </div>
+      </div>
+
+    </div>
+  </div>

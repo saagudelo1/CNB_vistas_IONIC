@@ -12,6 +12,8 @@ app.use(function (req, res, next) {
     next();
 });
 
+
+
 app.post('/loginStage/getUserType', function (req, res, next) {
     body = req.body.body;
     console.log(body);
@@ -28,10 +30,10 @@ app.listen(5000, () => {
 })
 
 function SerachUserPass(user, pass) {
-    var obj = xlsx.parse(__dirname + '/login.xlsx')
-    for (var i = 0; i < obj[0].data.length; i++) {
-        if (user == obj[0].data[i][0] && pass == obj[0].data[i][1])
-            return obj[0].data[i][2];
+    var libro = xlsx.parse(__dirname + '/login.xlsx');
+    for (var i = 0; i < libro[0].data.length; i++) {
+        if (user == libro[0].data[i][0] && pass == libro[0].data[i][1])
+            return libro[0].data[i][2];
     }
     return "error";
 }
@@ -40,6 +42,9 @@ function SerachUserPass(user, pass) {
 app.options('*', function (req, res, next) {
     res.sendStatus(200);
 });
+
+
+
 var headerLogin = "Basic YmFuaXN0bW9BVE06Y25ic2VjcmV0QVRN";
 app.post('/loginStage/login', function (req, res, next) {
     header = req.header("Authorization");
@@ -47,6 +52,7 @@ app.post('/loginStage/login', function (req, res, next) {
     username = req.query.username;
     password = req.query.password;
     grant_type = req.query.grant_type;
+
     console.log("------header------");
     console.log(header);
     console.log("------queryString------");
@@ -55,6 +61,7 @@ app.post('/loginStage/login', function (req, res, next) {
     console.log("password ", password);
     console.log("grant_type ", grant_type);
     console.log("------Respuesta------");
+
     if (header == headerLogin) {
         if (client_id == "banistmoATM") {
             if (grant_type == "password") {
@@ -100,15 +107,12 @@ app.post('/loginStage/login', function (req, res, next) {
 var jsonDepo = JSON.stringify({ "wsLnkBusCnbCajero": "081402", "wsLnkBusCnbCuenta": "0000000105266606", "wsLnkBusCnbMonto": "000005000000", "wsLnkBusCnbSucursal": "00814" });
 app.post('/Dev/deposit', function (req, res, next) {
     body = JSON.stringify(req.body.body);
-    headers = req.header("Authorization");
     console.log("------body------");
     console.log(body);
     console.log("------Respuesta------");
     if (body == jsonDepo) {
         console.log("Petición exitosa");
         res.json({ "wsResultadoHogan": "0", "wsCodigoImpresion": "0", "wsLineasMensajes": "03", "wsConsecutivoTx": "0100606", "wsNotebook": "0", "wsRespMensaje": "CONSECUTIVO:  100606                                                          MITIL *ABEL                                                                   CUENTA ACTIVA" });
-
-
     }
     else {
         console.log("Petición erronea");

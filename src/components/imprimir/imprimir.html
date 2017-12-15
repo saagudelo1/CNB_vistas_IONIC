@@ -1,0 +1,44 @@
+
+<div class="container  ">
+  <app-cabecera></app-cabecera>
+  <div>
+    <div class="EstiloTitulo text-center" style=" margin-top: 15px">
+      <p class=" marged Barra-Conf " style="color: black"> Confirmacion del deposito </p>
+    </div>
+
+    <div class="text-center ">
+      <h1 class="SubTit" style="color: rgb(12, 33, 116)">
+        <i class="fa fa-check-circle" aria-hidden="true" style="color:rgb(51, 255, 0 ); font-size: 20px"></i>
+        El deposito fue realizado exitosamente
+      </h1>
+
+
+      <div class="row form-group" *ngFor = "let c of col1; let i = index" >
+        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: right">
+          <p> {{c}} </p>
+        </div>
+        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: left">
+          <p> {{col2[i]}} </p>
+        </div>
+      </div>
+
+      <div class="row vdivide">
+        <div class="col-xs-4 col-sm-4 text-center">
+          <p class=" row marged fa fa-print ImpIcono" aria-hidden="true"  routerLink="/Login" routerLinkActive="active">
+          </p>
+          <p class=" text-center" style="font-size: 14px"> Imprimir Recivo</p>
+        </div>
+        <div class="col-xs-4 col-sm-4 text-center">
+          <p class="row marged fa fa-envelope-o ImpIcono" aria-hidden="true"  routerLink="/Login" routerLinkActive="active">
+          </p>
+          <p class=" text-center" style="font-size: 14px"> Enviar por correo</p>
+        </div>
+        <div class=" col-xs-4 col-sm-4 text-center">
+          <p class="  row marged fa fa-undo ImpIcono" aria-hidden="true"  routerLink="/Login" routerLinkActive="active">
+          </p>
+          <p class=" text-center" style="font-size: 14px"> Reversar transaccion</p>
+        </div>
+      </div>
+
+    </div>
+  </div>

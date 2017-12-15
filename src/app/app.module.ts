@@ -18,7 +18,7 @@ import { ImprimirComponent } from '../components/imprimir/imprimir';
 
 import { MyApp } from './app.component';
 
-import { OperatorServisesProvider } from '../providers/operator-servises/operator-servises';
+import { OperatorServicesProvider } from '../providers/operator-servises/operator-servises';
 
 import { LoginProvider } from '../providers/login/login';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -69,7 +69,7 @@ const routes: Routes = [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    OperatorServisesProvider
+    OperatorServicesProvider
     LoginProvider,
     InterceptorProvider,
     {

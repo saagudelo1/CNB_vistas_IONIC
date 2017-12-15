@@ -17,8 +17,9 @@ import { CabeceraComponent } from '../components/cabecera/cabecera';
 
 
 import { MyApp } from './app.component';
-import { OperatorServisesProvider } from '../providers/operator-servises/operator-servises';
-import { HttpModule } from '@angular/http';
+import { OperatorServicesProvider } from '../providers/operator-services/operator-services';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 const routes: Routes = [
@@ -45,7 +46,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(
       routes,
       { enableTracing: true } // <-- debugging purposes only
@@ -61,7 +62,7 @@ const routes: Routes = [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    OperatorServisesProvider
+    OperatorServicesProvider
   ]
 })
 export class AppModule {}

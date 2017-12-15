@@ -10,7 +10,7 @@ import { Http } from '@angular/http';
   and Angular DI.
 */
 @Injectable()
-export class OperatorServisesProvider {
+export class OperatorServicesProvider {
 
   constructor(public http: Http) {
     console.log('Hello OperatorServisesProvider Provider');

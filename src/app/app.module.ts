@@ -17,9 +17,13 @@ import { CabeceraComponent } from '../components/cabecera/cabecera';
 import { ImprimirComponent } from '../components/imprimir/imprimir';
 
 import { MyApp } from './app.component';
+
+import { OperatorServicesProvider } from '../providers/operator-servises/operator-services';
+
 import { LoginProvider } from '../providers/login/login';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorProvider } from '../providers/interceptor/interceptor';
+
 
 
 const routes: Routes = [
@@ -48,6 +52,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(
       routes,
       { enableTracing: true } // <-- debugging purposes only
@@ -64,6 +69,7 @@ const routes: Routes = [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    OperatorServicesProvider
     LoginProvider,
     InterceptorProvider,
     {

@@ -1,41 +1,74 @@
 <!-- section for header and login form  -->
-  
+
 <section id="login">
   <div class="container">
-    <div>
+   
       <!--<img src="../..assets/img/logo.png" />
-      <h1 class="header1">Corresponsal No Bancario</h1>--> 
+      <h1 class="header1">Corresponsal No Bancario</h1>-->
       <app-cabecera></app-cabecera>
-      <div class=" col-xs-12">
-        <p class="header2 text-center">A través de este portal usted podrá acceder a su CNB y ofrecer a sus clientes transacciones como retiro, depósito,
-          pagos y recargas</p>
-          <br>
+      <div class=" col-xs-12" >
+        <p class="header2 text-center">
+          A través de este portal usted podrá acceder a su CNB y ofrecer a sus clientes transacciones como retiro, depósito,
+          pagos y recargas
+        </p>        
       </div>
-      <app-error *ngIf= error></app-error>
       
-      <h3>Iniciar Sesión</h3>
-      <form class="form-wrap" role="form" (ngSubmit)="login()" method="post" id="login-form" autocomplete="off">
+      <app-error *ngIf = error style="border: 2px solid white"></app-error>
 
-        <div class="form-group col-xs-12 col-sm-8 col-md-6 col-lg-4 text-center">
+      <h3>Iniciar Sesión</h3>
+      <!--  -->
+      <div class="form-horizontal" id="login-form" autocomplete="off" >
+        <div class="form-group">
+          <label for="username" class="sr-only">Usuario</label>
+          <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4">
+            <input type="text" name="username" id="username" class="form-control textInputF  inputUser " placeholder="Usuario" [(ngModel)]="username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="key" class="sr-only">Contraseña</label>
+          <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4">
+            <input type="password" name="key" id="key" class="form-control textInputF inputPass " placeholder="Contraseña" [(ngModel)]="password">
+          </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 col-sm-offset-4 col-md-offset-5 col-lg-offset-5" (click)="login()" >          
+                <p class="btn-custom" style=" padding-top: 22px;">Ingresar</p>
+                <!-- <input type="submit" id="btn-login" style="display:none" value="Ingresar" > -->
+              </div>
+        </div>
+        
+      </div>
+      <!--  -->
+
+      <!-- <form class="form-horizontal" role="form" (ngSubmit)="login()" method="post" id="login-form" autocomplete="off" style="border: 2px solid red">
+
+        <br>
+        <br>
+
+        <div class="form-group col-xs-12 col-sm-8 col-md-6 col-lg-4 text-center" style="border: 2px solid blue">
           <label for="username" class="sr-only">Usuario</label>
           <input type="text" name="username" id="username" class="form-control textInputF  inputUser " placeholder="Usuario" [(ngModel)] = "username" (change)="Cambio()">
           
         </div>
-        <div class="form-group col-xs-12 col-sm-8 col-md-6 col-lg-4 text-center">
+        <div class="form-group col-xs-12 col-sm-8 col-md-6 col-lg-4 text-center" style="border: 2px solid blue">
           <label for="key" class="sr-only">Contraseña</label>
           <input type="password" name="key" id="key" class="form-control textInputF inputPass " placeholder="Contraseña" [(ngModel)] = "password" (change)="Cambio()">
         </div>
 
-        <div class="btn-custom col-md-2 col-lg-2" (click)="login()">
+        <div class="btn-custom col-md-2 col-lg-2" (click)="login()" style="border: 2px solid yellow">
           <p class="textBtn">Ingresar</p>          
           <input type="submit" id="btn-login" style="display:none" value="Ingresar" >
         </div>
-      </form>
+      </form> -->
       <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">¿Olvidó su contraseña?</a>
+
       <a  class="forget" routerLink="/Contacto" routerLinkActive="active">Contactenos</a>
+      <a  class="forget" routerLink="/imprimir" routerLinkActive="active">Imprimir</a>
       
+
       <hr>
-    </div>
+    
   </div>
   <!-- /.container -->
 </section>

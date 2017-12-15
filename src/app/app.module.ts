@@ -14,11 +14,15 @@ import { ErrorComponent } from '../components/error/error';
 import { ContactoComponent } from '../components/contacto/contacto';
 import { LogoutComponent } from '../components/logout/logout';
 import { CabeceraComponent } from '../components/cabecera/cabecera';
-
+import { ImprimirComponent } from '../components/imprimir/imprimir';
 
 import { MyApp } from './app.component';
-import { OperatorServicesProvider } from '../providers/operator-services/operator-services';
-import { HttpClientModule } from '@angular/common/http';
+import { OperatorServicesProvider } from '../providers/operator-servises/operator-services';
+
+import { LoginProvider } from '../providers/login/login';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorProvider } from '../providers/interceptor/interceptor';
+
 
 
 
@@ -29,6 +33,7 @@ const routes: Routes = [
   { path: 'Contacto', component: ContactoComponent },
   { path: 'error', component: ErrorComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'imprimir', component: ImprimirComponent },
   { path: '**', redirectTo: 'Login', pathMatch: 'full' }
 ];
 
@@ -42,7 +47,8 @@ const routes: Routes = [
     ErrorComponent,
     ContactoComponent,
     LogoutComponent,
-    CabeceraComponent
+    CabeceraComponent,
+    ImprimirComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,8 @@ const routes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     FormsModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -62,7 +69,14 @@ const routes: Routes = [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    OperatorServicesProvider
+    OperatorServicesProvider,
+    LoginProvider,
+    InterceptorProvider,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorProvider,
+      multi: true
+    },
   ]
 })
 export class AppModule {}

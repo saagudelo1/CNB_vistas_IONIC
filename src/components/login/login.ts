@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
         
         if (response["access_token"] != undefined) {
           valid = true;
+          localStorage.setItem("access_token", response["access_token"]);
+          
         }
         else {
           switch (response["error"]) {

@@ -11,16 +11,17 @@ import { Observable } from 'rxjs/Observable';
 */
 @Injectable()
 export class LoginProvider {
-
-  constructor(public http: HttpClient) {
+  
+    constructor(public http: HttpClient) {
+    }
+  
+    private urlServer: String = "https://4jctek2o4d.execute-api.us-east-2.amazonaws.com";
+  
+    PostToServer(ruta, body, parametros: HttpParams) {
+      return this.http
+        .post(this.urlServer + ruta, 
+          body, {params: parametros, observe: "response"});
+    }
+  
   }
-
-  private urlServer: String = "http://192.168.3.187:5000";
-
-  PostToServer(ruta, body, parametros: HttpParams) {
-    return this.http
-      .post(this.urlServer + ruta, 
-        body, {params: parametros});
-  }
-
-}
+  

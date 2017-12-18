@@ -52,7 +52,6 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     RouterModule.forRoot(
       routes,
       { enableTracing: true } // <-- debugging purposes only
@@ -69,7 +68,7 @@ const routes: Routes = [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    OperatorServicesProvider
+    OperatorServicesProvider,
     LoginProvider,
     InterceptorProvider,
     {

@@ -1,4 +1,3 @@
-
 <div class="container  ">
   <app-cabecera></app-cabecera>
   <div>
@@ -13,32 +12,50 @@
       </h1>
 
 
-      <div class="row form-group" *ngFor = "let c of col1; let i = index" >
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: right">
-          <p> {{c}} </p>
+      <div id="Datos">
+        <div class="row form-group" *ngFor="let c of col1; let i = index">
+          <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: right">
+            <p> {{c}} </p>
+          </div>
+          <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: left">
+            <p> {{col2[i]}} </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6 textoParrafo1" style="text-align: left">
-          <p> {{col2[i]}} </p>
+      </div>     
+
+
+      <div>
+        <div class="textoParrafo2" id="DatosImp">
+          <h3 style="text-align: center">
+            <strong>Corresponsal no Bancario Banistmo a tu lado</strong>
+          </h3>
+          <div style="text-align: center">
+          <p  *ngFor="let c of col1; let i = index"> {{c}} {{col2[i]}} </p>
+          </div>
+          <h5 style="text-align: center">
+              <strong>Para cualquier inquietud te puedes comunicar con nuestra sucursal telefonica al numero 32183055555</strong>
+            </h5>
         </div>
       </div>
 
+
       <div class="row vdivide">
         <div class="col-xs-4 col-sm-4 text-center">
-          <p class=" row marged fa fa-print ImpIcono" aria-hidden="true"  routerLink="/Login" routerLinkActive="active">
+          <p class=" row marged fa fa-print ImpIcono" (click)="imprSelec('DatosImp') " id="IconPrint" aria-hidden="true" routerLink="/Login"
+            routerLinkActive="active">
           </p>
-          <p class=" text-center" style="font-size: 14px"> Imprimir Recivo</p>
+          <p class=" text-center" style="font-size: 14px"> Imprimir Comprobante</p>
         </div>
         <div class="col-xs-4 col-sm-4 text-center">
-          <p class="row marged fa fa-envelope-o ImpIcono" aria-hidden="true"  routerLink="/Login" routerLinkActive="active">
+          <p class="row marged fa fa-envelope-o ImpIcono " id="IconMail" aria-hidden="true" routerLink="/Login" routerLinkActive="active">
           </p>
           <p class=" text-center" style="font-size: 14px"> Enviar por correo</p>
         </div>
         <div class=" col-xs-4 col-sm-4 text-center">
-          <p class="  row marged fa fa-undo ImpIcono" aria-hidden="true"  routerLink="/Login" routerLinkActive="active">
+          <p class="  row marged fa fa-undo ImpIcono" id="IconRevers" aria-hidden="true" routerLink="/Login" routerLinkActive="active">
           </p>
           <p class=" text-center" style="font-size: 14px"> Reversar transaccion</p>
         </div>
       </div>
-
     </div>
   </div>

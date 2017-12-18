@@ -23,10 +23,13 @@ import { OperatorServicesProvider } from '../providers/operator-servises/operato
 import { LoginProvider } from '../providers/login/login';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorProvider } from '../providers/interceptor/interceptor';
+import {CabeceraDepositoComponent} from '../components/cabecera-deposito/cabecera-deposito';
+import { NumeroCuentaComponent } from '../components/numero-cuenta/numero-cuenta';
 
 
 
 const routes: Routes = [
+  { path: 'deposito', component: NumeroCuentaComponent },
   { path: 'Administrador', component: MenuAdminComponent },
   { path: 'Operario', component: MenuOperadorComponent },
   { path: 'Login', component: LoginComponent },
@@ -48,11 +51,13 @@ const routes: Routes = [
     ContactoComponent,
     LogoutComponent,
     CabeceraComponent,
-    ImprimirComponent
+    ImprimirComponent,
+    NumeroCuentaComponent,
+    CabeceraDepositoComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(
       routes,
       { enableTracing: true } // <-- debugging purposes only
@@ -69,7 +74,7 @@ const routes: Routes = [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    OperatorServicesProvider
+    OperatorServicesProvider,
     LoginProvider,
     InterceptorProvider,
     {

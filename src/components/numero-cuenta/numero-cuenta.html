@@ -1,0 +1,83 @@
+<div class="container padded">
+  <cabecera-deposito></cabecera-deposito>
+  <div class="row  padded  EstiloTitulo">
+    <div class="col-xs-5 col-sm-8 col-md-9 text-center " style=" margin-top: 18px">
+      <p class="titulodeposito">Deposito a Cuentas Banistmo </p>
+    </div>
+    <div class="col-xs-5 col-sm-4 col-md-3">
+      <span class="icon-bank-sign icon "> </span>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row padded">
+    <div class="centrado   col-xs-12">
+
+      <form>
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-3 col-form-label">Numero de Cuenta:</label>
+          <div class="col-sm-4">
+            <input type="num" class="form-control" id="inputEmail3" placeholder="Numero de cuenta">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-3 col-form-label">Monto:</label>
+          <div class="col-sm-4">
+            <input type="num" class="form-control" id="inputPassword3" placeholder="Monto">
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btnconsul btn text-center" (click)="Consultar()" type="submit">Consultar</button>
+        </div>
+      </form>
+      <br>
+      <br>
+      <div class="info_cuenta" *ngIf="MostrarInfo">
+        <form>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nombre:</label>
+            <label class="col-sm-2 col-form-label">Diana Jaramillo</label>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Numero de Cuenta:</label>
+            <label class="col-sm-2 col-form-label">123456789876</label>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Tipo de Cuenta:</label>
+            <label class="col-sm-2 col-form-label">Ahorros</label>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Monto:</label>
+            <label class="col-sm-2 col-form-label">$300.000</label>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Monto entregado por el cliente:</label>
+            <div class="col-sm-4">
+              <input type="num" class="form-control" id="inputEmail3" placeholder="Monto Recibido">
+            </div>
+          </div>
+
+
+        </form>
+
+
+      </div>
+
+
+
+    </div>
+    </div>
+
+    <div class="row  padded text-center">
+        <div class="botond col-md-6" style="text-align: left" routerLink="/Login" routerLinkActive="active">
+          <p style=" padding-top: 20px">Cancelar</p>
+        </div>
+        <div class="botond col-md-6" style="text-align: right" routerLink="/Login" routerLinkActive="active">
+          <p style=" padding-top: 20px;">Confirmar</p>
+        </div>
+
+      </div>
+
+  
+
+</div>

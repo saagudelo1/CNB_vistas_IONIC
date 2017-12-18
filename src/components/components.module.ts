@@ -7,15 +7,20 @@ import { LogoutComponent } from './logout/logout';
 import { MenuAdminComponent } from './menu-admin/menu-admin';
 import { MenuOperadorComponent } from './menu-operador/menu-operador';
 import { ImprimirComponent } from './imprimir/imprimir';
+import { NumeroCuentaComponent } from './numero-cuenta/numero-cuenta';
+import { CabeceraDepositoComponent } from './cabecera-deposito/cabecera-deposito';
 @NgModule({
-	declarations: [CabeceraComponent,
+	declarations: [
+    CabeceraComponent,
     ContactoComponent,
     ErrorComponent,
     LoginComponent,
     LogoutComponent,
     MenuAdminComponent,
     MenuOperadorComponent,
-    ImprimirComponent],
+    ImprimirComponent,
+    NumeroCuentaComponent,
+    CabeceraDepositoComponent],
 	imports: [],
 	exports: [CabeceraComponent,
     ContactoComponent,
@@ -24,6 +29,8 @@ import { ImprimirComponent } from './imprimir/imprimir';
     LogoutComponent,
     MenuAdminComponent,
     MenuOperadorComponent,
-    ImprimirComponent]
+    ImprimirComponent,
+    NumeroCuentaComponent,
+    CabeceraDepositoComponent]
 })
 export class ComponentsModule {}

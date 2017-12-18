@@ -40,13 +40,13 @@ export class LoginComponent implements OnInit {
 
         let valid = false;
         
-        if (response["access_token"] != undefined) {
+        if (response.body["access_token"] != undefined) {
           valid = true;
-          localStorage.setItem("access_token", response["access_token"]);
+          localStorage.setItem("access_token", response.body["access_token"]);
           
         }
         else {
-          switch (response["error"]) {
+          switch (response.body["error"]) {
             case "invalid_authentication":
             case "invalid_request":
             case "invalid_client":
@@ -72,9 +72,9 @@ export class LoginComponent implements OnInit {
           this._login.PostToServer(ruta, body, params)
             .subscribe(res => {
               console.log();
-              if (res["UserType"] == "admin") {
+              if (res.body["UserType"] == "admin") {
                 this.router.navigate(['/Administrador']);
-              } else if (res["UserType"] == "operador") {
+              } else if (res.body["UserType"] == "operador") {
                 this.router.navigate(['/Operario']);
               } else {
                 this.error = true;

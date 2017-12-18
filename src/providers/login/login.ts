@@ -20,7 +20,7 @@ export class LoginProvider {
   PostToServer(ruta, body, parametros: HttpParams) {
     return this.http
       .post(this.urlServer + ruta, 
-        body, {params: parametros});
+        body, {params: parametros, observe: "response"});
   }
 
 }

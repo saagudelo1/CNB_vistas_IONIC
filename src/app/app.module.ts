@@ -25,6 +25,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorProvider } from '../providers/interceptor/interceptor';
 import {CabeceraDepositoComponent} from '../components/cabecera-deposito/cabecera-deposito';
 import { NumeroCuentaComponent } from '../components/numero-cuenta/numero-cuenta';
+import { VerificarProvider } from '../providers/verificar/verificar';
 
 
 
@@ -82,6 +83,7 @@ const routes: Routes = [
       useClass: InterceptorProvider,
       multi: true
     },
+    VerificarProvider,
   ]
 })
 export class AppModule {}

@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
    * Function to validate login
    */
   login() {
-
-    let ruta = "/loginStage/login";
+    if (this.username == "admin" || this.username == "operador") {
+    let ruta = "/dev/login";
     let body = {};
     let params = new HttpParams()
       .append("client_id", "banistmoATM")
@@ -39,12 +39,14 @@ export class LoginComponent implements OnInit {
       .subscribe(response => {
 
         let valid = false;
-        
-        if (response["access_token"] != undefined) {
+
+        if (response.body["access_token"] != undefined) {
           valid = true;
+          localStorage.setItem("access_token", response.body["access_token"]);
+
         }
         else {
-          switch (response["error"]) {
+          switch (response.body["error"]) {
             case "invalid_authentication":
             case "invalid_request":
             case "invalid_client":
@@ -57,37 +59,51 @@ export class LoginComponent implements OnInit {
           }
         }
         if (valid) {
-          localStorage.setItem("user", this.username);
-          localStorage.setItem("pass", this.password);
-          let ruta = "/loginStage/getUserType";
-          let body = {
-            "body": {
-              "username": this.username,
-              "password": this.password
-            }
-          };
-          let params = new HttpParams();
-          this._login.PostToServer(ruta, body, params)
-            .subscribe(res => {
-              console.log();
-              if (res["UserType"] == "admin") {
-                this.router.navigate(['/Administrador']);
-              } else if (res["UserType"] == "operador") {
-                this.router.navigate(['/Operario']);
-              } else {
-                this.error = true;
-              }
-            },
-            err => {
-              alert("Error al buscar el tipo de usuario");
-            })
+          // localStorage.setItem("user", this.username);
+          // localStorage.setItem("pass", this.password);
+          // let ruta = "/loginStage/getUserType";
+          // let body = {
+          //   "body": {
+          //     "username": this.username,
+          //     "password": this.password
+          //   }
+          // };
+          // let params = new HttpParams();
+          // this._login.PostToServer(ruta, body, params)
+          //   .subscribe(res => {
+          //     console.log();
+          //     if (res.body["UserType"] == "admin") {
+          //       this.router.navigate(['/Administrador']);
+          //     } else if (res.body["UserType"] == "operador") {
+          //       this.router.navigate(['/Operario']);
+          //     } else {
+          //       this.error = true;
+          //     }
+          //   },
+          //   err => {
+          //     alert("Error al buscar el tipo de usuario");
+          //   })
+          console.log("access_token",localStorage.getItem("access_token"))
+          if (this.username == "admin") {
+            this.router.navigate(['/Administrador']);
+          } else if (this.username == "operador") {
+            this.router.navigate(['/Operario']);
+          } else {
+            this.error = true;
+          }
+
         }
       },
       error => {
         alert("Error al pedir el token");
-        
-      });
 
+      });
+    }
+    else{
+      this.error = true;
+    }
 
   }
+
+
 }

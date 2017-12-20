@@ -8,7 +8,7 @@ import { DateTime } from "ionic-angular/components/datetime/datetime";
 })
 export class ImprimirComponent {
   public deposito:Deposito;
-  public col1 = ["Número de Documento:"," Fecha y Hora:","Nombre Corresponsal:","Concepto:","Monto:","Deposito en efectivo:",
+  public col1 = ["Número de Documento:"," Fecha y Hora:","Nombre Corresponsal:","Concepto:","Monto:","Depósito en efectivo:",
 "Monto Entregado:","Cambio:"];
   public col2;
   

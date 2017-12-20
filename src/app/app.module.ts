@@ -17,7 +17,6 @@ import { CabeceraComponent } from '../components/cabecera/cabecera';
 import { ImprimirComponent } from '../components/imprimir/imprimir';
 
 import { MyApp } from './app.component';
-
 import { OperatorServicesProvider } from '../providers/operator-servises/operator-services';
 
 import { LoginProvider } from '../providers/login/login';
@@ -26,6 +25,7 @@ import { InterceptorProvider } from '../providers/interceptor/interceptor';
 import {CabeceraDepositoComponent} from '../components/cabecera-deposito/cabecera-deposito';
 import { NumeroCuentaComponent } from '../components/numero-cuenta/numero-cuenta';
 import { VerificarProvider } from '../providers/verificar/verificar';
+
 
 
 

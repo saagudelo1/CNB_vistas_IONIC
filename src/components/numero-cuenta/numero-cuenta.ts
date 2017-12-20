@@ -75,13 +75,13 @@ export class NumeroCuentaComponent {
           this.validar[0] = true;
         } else {
           this.clase_cuenta = "";
-          this.errorCuenta = "El numero de cuenta no es valido.";
+          this.errorCuenta = "";
           this.validar[0] = false;        
         } 
       }   
     } else {
       this.clase_cuenta = "";
-      this.errorCuenta = "Numero de cuenta no es valido.";
+      this.errorCuenta = "";
       this.validar[0] = false;  
       this.NumCuenta =  null; 
     }
@@ -102,13 +102,13 @@ export class NumeroCuentaComponent {
           this.validar[0] = true;
         } else {
           this.clase_monto = "";
-          this.errorMonto = "El numero de cuenta debe tener 13 numeros.";
+          this.errorMonto = "";
           this.validar[0] = false;        
         } 
       }   
     } else {
       this.clase_monto = "";
-      this.errorMonto = "Numero de cuenta no es valido.";
+      this.errorMonto = "";
       this.validar[0] = false;  
       this.Monto=  null; 
     } 
@@ -128,13 +128,13 @@ validarEntregado(input){
         this.validar[0] = true;
       } else {
         this.clase_entregado = "";
-        this.errorMontoEntregado = "El numero de cuenta debe tener 13 numeros.";
+        this.errorMontoEntregado = "";
         this.validar[0] = false;        
       } 
     }   
   } else {
     this.clase_monto = "";
-    this.errorMontoEntregado = "Numero de cuenta no es valido.";
+    this.errorMontoEntregado = "";
     this.validar[0] = false;  
     this.Entregado =  null; 
   } 

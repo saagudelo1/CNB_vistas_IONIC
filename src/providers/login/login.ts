@@ -15,7 +15,7 @@ export class LoginProvider {
   constructor(public http: HttpClient) {
   }
 
-  private urlServer: String = "http://192.168.3.187:5000";
+  private urlServer: String = "http://localhost:5000";
 
   PostToServer(ruta, body, parametros: HttpParams) {
     return this.http

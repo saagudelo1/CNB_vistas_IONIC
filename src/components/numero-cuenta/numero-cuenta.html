@@ -2,63 +2,66 @@
   <cabecera-deposito></cabecera-deposito>
   <div class="row  padded  EstiloTitulo">
     <div class="col-xs-5 col-sm-8 col-md-9 text-center " style=" margin-top: 18px">
-      <p class="titulodeposito">Deposito a Cuentas Banistmo </p>
+      <p class="titulodeposito">Depósito en efectivo</p>
     </div>
     <div class="col-xs-5 col-sm-4 col-md-3">
       <span class="icon-bank-sign icon "> </span>
     </div>
   </div>
   <br>
-  <br>
+ 
   <div class="row padded">
     <div class="centrado   col-xs-12">
+<div class="div" *ngIf="MostrarFormu">
+      <form class="form-horizontal">
+        <div class="form-group row">
+          <label for="inputEmail3" class="control-label col-sm-3 col-form-label">Número de Cuenta:</label>
+          <div class="col-sm-4  {{clase_cuenta}}" >
+            <input type="text" class="form-control " id="numero"  placeholder="Número de cuenta" [(ngModel)]="NumCuenta" name="numCuentaValidar" #numCuentaValidar="ngModel" (keyup)="validarCuenta(numCuentaValidar)" required >
+          </div>
+          <div class="control-label">{{errorCuenta}}</div>
+          
+          
 
-      <form>
-        <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-3 col-form-label">Numero de Cuenta:</label>
-          <div class="col-sm-4">
-            <input type="num" class="form-control" id="inputEmail3" placeholder="Numero de cuenta">
-          </div>
         </div>
         <div class="form-group row">
-          <label for="inputPassword3" class="col-sm-3 col-form-label">Monto:</label>
-          <div class="col-sm-4">
-            <input type="num" class="form-control" id="inputPassword3" placeholder="Monto">
+          <label for="inputPassword3" class="control-label col-sm-3 col-form-label">Monto a depósitar:</label>
+          <div class="col-sm-4 {{clase_Monto}}">
+            <input type="text" class="form-control" id="inputPassword3" placeholder="Monto a depósitar" [(ngModel)]="Monto" name="numMontoValidar" #numMontoValidar="ngModel" (keyup)="validarMonto(numMontoValidar)" required >
           </div>
         </div>
+        <div class="form-group row  ">
+          <label class="col-sm-3 col-form-label">Monto entregado por el cliente:</label>
+          <div class="col-sm-4  {{clase_entregado}}">
+            <input type="number" class="form-control" id="inputEmail3" placeholder="Monto Recibido" [(ngModel)]="Entregado" name="numEntregadoValidar" #numEntregadoValidar="ngModel" (keyup)="validarEntregado(numEntregadoValidar)" required >
+          </div>
+        </div>
+
         <div class="text-center">
-          <button class="btnconsul btn text-center" (click)="Consultar()" type="submit">Consultar</button>
+          <button class="btnconsul btn text-center" (click)="Consultar()" type="submit">Siguiente</button>
         </div>
-      </form>
-      <br>
+      </form></div>
+      
       <br>
       <div class="info_cuenta" *ngIf="MostrarInfo">
         <form>
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nombre:</label>
-            <label class="col-sm-2 col-form-label">Diana Jaramillo</label>
+            <label class="col-sm-6 col-form-label" style="text-align: right">Nombre:</label>
+            <label class="col-sm-6 col-form-label" style="text-align: left" >{{labelNombre}}</label>
           </div>
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Numero de Cuenta:</label>
-            <label class="col-sm-2 col-form-label">123456789876</label>
+            <label class="col-sm-6 col-form-label" style="text-align: right">Número de Cuenta:</label>
+            <label class="col-sm-6 col-form-label" style="text-align: left"> {{labelNumCuenta}} </label>
           </div>
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Tipo de Cuenta:</label>
-            <label class="col-sm-2 col-form-label">Ahorros</label>
+            <label class="col-sm-6 col-form-label" style="text-align: right" >Monto a depósitar:</label>
+            <label class="col-sm-6 col-form-label" style="text-align: left" >{{labelMontoDepositar}} </label>
           </div>
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Monto:</label>
-            <label class="col-sm-2 col-form-label">$300.000</label>
+            <label class="col-sm-6 col-form-label" style="text-align: right">Monto entregado por el cliente:</label>
+            <label class="col-sm-6 col-form-label" style="text-align: left" >{{labelMontoEntregado}}</label>
           </div>
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Monto entregado por el cliente:</label>
-            <div class="col-sm-4">
-              <input type="num" class="form-control" id="inputEmail3" placeholder="Monto Recibido">
-            </div>
-          </div>
-
-
-        </form>
+           </form>
 
 
       </div>
@@ -69,11 +72,11 @@
     </div>
 
     <div class="row  padded text-center">
-        <div class="botond col-md-6" style="text-align: left" routerLink="/Login" routerLinkActive="active">
-          <p style=" padding-top: 20px">Cancelar</p>
+        <div class="botond col-md-6" style="text-align: left" (click)="corregir()">
+          <p style=" padding-top: 20px">Corregir</p>
         </div>
-        <div class="botond col-md-6" style="text-align: right" routerLink="/Login" routerLinkActive="active">
-          <p style=" padding-top: 20px;">Confirmar</p>
+        <div class="botond col-md-6" style="text-align: right" routerLink="/imprimir" routerLinkActive="active">
+          <p style=" padding-top: 20px;">Realizar depósito</p>
         </div>
 
       </div>

@@ -27,31 +27,31 @@
       <div>
         <div class="textoParrafo2" id="DatosImp">
           <h3 style="text-align: center">
-            <strong>Corresponsal no Bancario Banistmo a tu lado</strong>
+            <strong>Corresponsal no Bancario Banistmo</strong>
           </h3>
           <div style="text-align: center">
           <p  *ngFor="let c of col1; let i = index"> {{c}} {{col2[i]}} </p>
           </div>
-          <h5 style="text-align: center">
-              <strong>Para cualquier inquietud te puedes comunicar con nuestra sucursal telefonica al numero 32183055555</strong>
-            </h5>
+          
+            <div class="row">
+              <p  style="font-size: 12px; text-align: center"><strong>
+                  Banistmo es el responsable por los servicios bancarios ofrecidos por el corresponsal, éste no puede prestar servicios financieros por su cuenta. Para más detalles de nuestros CNB, favor visitar www.xxx.com.Verifique que la información en este documento esté correcta. Para reclamos comuníquese al número …… Conserve esta tirilla como soporte.
+                </strong> 
+              </p>
+            </div>
         </div>
       </div>
 
 
       <div class="row vdivide">
-        <div class="col-xs-4 col-sm-4 text-center">
+        <div class="col-xs-6 col-sm-6 text-center">
           <p class=" row marged fa fa-print ImpIcono" (click)="imprSelec('DatosImp') " id="IconPrint" aria-hidden="true" routerLink="/Login"
             routerLinkActive="active">
           </p>
           <p class=" text-center" style="font-size: 14px"> Imprimir Comprobante</p>
         </div>
-        <div class="col-xs-4 col-sm-4 text-center">
-          <p class="row marged fa fa-envelope-o ImpIcono " id="IconMail" aria-hidden="true" routerLink="/Login" routerLinkActive="active">
-          </p>
-          <p class=" text-center" style="font-size: 14px"> Enviar por correo</p>
-        </div>
-        <div class=" col-xs-4 col-sm-4 text-center">
+      
+        <div class=" col-xs-6 col-sm-6 text-center">
           <p class="  row marged fa fa-undo ImpIcono" id="IconRevers" aria-hidden="true" routerLink="/Login" routerLinkActive="active">
           </p>
           <p class=" text-center" style="font-size: 14px"> Reversar transaccion</p>

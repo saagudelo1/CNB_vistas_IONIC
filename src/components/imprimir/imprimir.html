@@ -1,14 +1,14 @@
-<div class="container  ">
+<div class="container" onload="imprSelec('DatosImp')">
   <app-cabecera></app-cabecera>
   <div>
     <div class="EstiloTitulo text-center" style=" margin-top: 15px">
-      <p class=" marged Barra-Conf " style="color: black"> Confirmacion del deposito </p>
+      <p class=" marged Barra-Conf " style="color: black"> Confirmación del depósito </p>
     </div>
 
     <div class="text-center ">
       <h1 class="SubTit" style="color: rgb(12, 33, 116)">
         <i class="fa fa-check-circle" aria-hidden="true" style="color:rgb(51, 255, 0 ); font-size: 20px"></i>
-        El deposito fue realizado exitosamente
+        El depósito fue realizado exitosamente
       </h1>
 
 
@@ -21,40 +21,48 @@
             <p> {{col2[i]}} </p>
           </div>
         </div>
-      </div>     
+      </div>
 
 
       <div>
         <div class="textoParrafo2" id="DatosImp">
           <h3 style="text-align: center">
-            <strong>Corresponsal no Bancario Banistmo a tu lado</strong>
+            <strong>Corresponsal no Bancario Banistmo</strong>
           </h3>
           <div style="text-align: center">
-          <p  *ngFor="let c of col1; let i = index"> {{c}} {{col2[i]}} </p>
+            <p *ngFor="let c of col1; let i = index"> {{c}} {{col2[i]}} </p>
           </div>
-          <h5 style="text-align: center">
-              <strong>Para cualquier inquietud te puedes comunicar con nuestra sucursal telefonica al numero 32183055555</strong>
-            </h5>
+
+          <div class="row">
+            <p style="font-size: 12px; text-align: center">
+              <strong>
+                Banistmo es el responsable por los servicios bancarios ofrecidos por el corresponsal, éste no puede prestar servicios financieros
+                por su cuenta. Para más detalles de nuestros CNB, favor visitar www.banistmo.com/atulado. Verifique que la
+                información en este documento esté correcta. Para reclamos comuníquese al número 3064700 Conserve esta tirilla
+                como soporte.
+              </strong>
+            </p>
+          </div>
         </div>
       </div>
 
 
       <div class="row vdivide">
-        <div class="col-xs-4 col-sm-4 text-center">
-          <p class=" row marged fa fa-print ImpIcono" (click)="imprSelec('DatosImp') " id="IconPrint" aria-hidden="true" routerLink="/Login"
-            routerLinkActive="active">
+        <div class="col-xs-4 col-sm-4 text-center" *ngIf="reimpresion <1">
+          <p class=" row marged fa fa-print ImpIcono" (click)="imprSelec()" id="IconPrint"  aria-hidden="true">
           </p>
-          <p class=" text-center" style="font-size: 14px"> Imprimir Comprobante</p>
+          <p class=" text-center" style="font-size: 14px" > Reimprimir Comprobante</p>
         </div>
         <div class="col-xs-4 col-sm-4 text-center">
-          <p class="row marged fa fa-envelope-o ImpIcono " id="IconMail" aria-hidden="true" routerLink="/Login" routerLinkActive="active">
-          </p>
-          <p class=" text-center" style="font-size: 14px"> Enviar por correo</p>
-        </div>
+            <p class=" row marged fa fa-home icono ImpIcono"  id="IconHome"  aria-hidden="true" routerLink="/Operario" routerLinkActive="active">
+            </p>
+            <p class=" text-center" style="font-size: 14px" > Finalizar Transacción</p>
+          </div>
+
         <div class=" col-xs-4 col-sm-4 text-center">
           <p class="  row marged fa fa-undo ImpIcono" id="IconRevers" aria-hidden="true" routerLink="/Login" routerLinkActive="active">
           </p>
-          <p class=" text-center" style="font-size: 14px"> Reversar transaccion</p>
+          <p class=" text-center" style="font-size: 14px"> Reversar transacción</p>
         </div>
       </div>
     </div>

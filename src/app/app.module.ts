@@ -17,7 +17,7 @@ import { CabeceraComponent } from '../components/cabecera/cabecera';
 import { ImprimirComponent } from '../components/imprimir/imprimir';
 
 import { MyApp } from './app.component';
-import { OperatorServicesProvider } from '../providers/operator-servises/operator-services';
+import { OperatorServicesProvider } from '../providers/operator-services/operator-services';
 
 import { LoginProvider } from '../providers/login/login';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CabeceraDepositoComponent } from '../cabecera-deposito/cabecera-deposito'
 import { VerificarProvider } from '../../providers/verificar/verificar';
+import { OperatorServicesProvider } from '../../providers/operator-services/operator-services';
 
 /**
  * Generated class for the NumeroCuentaComponent component.
@@ -24,24 +25,37 @@ export class NumeroCuentaComponent {
   text: string;
   MostrarInfo: boolean = false;
   MostrarFormu :boolean =true;
-
   labelNombre; labelNumCuenta; labelMontoDepositar; labelMontoEntregado;
+  //Variables para guardar los datos del depósito realizado
+  datosDeposito = {
+    numeroTransaccion: '',
+    fechaHora: '',
+    nombreCNB: '',
+    numeroCNB: '',
+    concepto: '',
+    numeroCuenta: '',
+    nombreCliente: '',
+    montoDepositado: '',
+    montoEntregado: '',
+    cambio: ''
+  }
+
   
-  constructor(private _verificar: VerificarProvider) {
+  constructor(private _verificar: VerificarProvider, private operatorServices: OperatorServicesProvider) {
     console.log('Hello NumeroCuentaComponent Component');
     this.text = 'Hello World';
   }
     
 
+  /**
+   * Mètodo para consultar cuenta
+   */
   Consultar() {
     let ruta = "https://8j24b5non3.execute-api.us-east-2.amazonaws.com/dev/cuenta";
     let body = {};
 
     this._verificar.PostToMock(body)
       .subscribe(response => {
-        
-        
-
         if (response["NumeroCuenta"] == this.NumCuenta) {
           console.log(NumeroCuentaComponent);
           this.labelNombre= response["NombreTitular"];
@@ -59,6 +73,49 @@ export class NumeroCuentaComponent {
 
         }
       });
+  }
+
+
+  /**
+   * Método para realizar depósito. Conume el microservicio de depósito
+   */
+  realizarDeposito(){
+    //Variable json para enviar al microservicio
+    let bodyDeosito = { wsLnkBusCnbCajero: '081402',
+                        wsLnkBusCnbCuenta: this.NumCuenta,
+                        wsLnkBusCnbMonto: this.Monto,
+                        wsLnkBusCnbSucursal: '00814'
+                      }
+    let cambio; //variable para hacer el cálculo del cambio
+
+    console.log("en la fucion relizar depósito")
+    //Llamado al método creado en el provider para consumir el microservicio
+    this.operatorServices.newDeposit(bodyDeosito)
+        .subscribe(response => {
+          console.log("El mensaje es: ", response.body["wsLineasMensajes"])
+          if (response.body["wsLineasMensajes"] == '03') { //Se verifica la respuesta del microservicio
+            alert("Depósito realizado correctamente "+response.body["wsLineasMensajes"]);
+            cambio = this.Monto - this.Entregado; //se camcula el cambio
+            //Llenamos el json con los datos del depósito
+            this.datosDeposito.numeroTransaccion = response.body["wsConsecutivoTx"];
+            this.datosDeposito.fechaHora = '21/12/2017 08:08:08';
+            this.datosDeposito.nombreCNB = 'CNB prueba';
+            this.datosDeposito.numeroCNB = '00814';
+            this.datosDeposito.concepto = 'Depósito en efectivo';
+            this.datosDeposito.numeroCuenta =  (this.NumCuenta).toString();
+            this.datosDeposito.nombreCliente = this.labelNombre;
+            this.datosDeposito.montoDepositado = this.Monto.toString();
+            this.datosDeposito.montoEntregado = this.Entregado.toString();
+            this.datosDeposito.cambio = cambio;
+            
+            console.log("Los datos del depósito son: ", this.datosDeposito)
+          }
+          else{
+            //Para mostrar los errores
+            alert("Error al realizar el depósito "+response.body["wsLineasMensajes"]);
+          }
+        });
+  
   }
 
   validarCuenta(input){

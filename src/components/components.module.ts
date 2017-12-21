@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { NgModule } from '@angular/core';
 import { CabeceraComponent } from './cabecera/cabecera';
 import { ContactoComponent } from './contacto/contacto';
@@ -35,7 +34,6 @@ import { CabeceraDepositoComponent } from './cabecera-deposito/cabecera-deposito
     CabeceraDepositoComponent]
 })
 export class ComponentsModule {}
-=======
 // import { NgModule } from '@angular/core';
 // import { CabeceraComponent } from './cabecera/cabecera';
 // import { ContactoComponent } from './contacto/contacto';
@@ -65,4 +63,3 @@ export class ComponentsModule {}
 //     ImprimirComponent]
 // })
 // export class ComponentsModule {}
->>>>>>> c5296e6193de53d488006be53c8b7a8fcd4f66b5

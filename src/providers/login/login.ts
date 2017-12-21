@@ -24,17 +24,4 @@ export class LoginProvider {
     }
   
   }
-<<<<<<< HEAD
-
-  private urlServer: String = "http://localhost:5000";
-
-  PostToServer(ruta, body, parametros: HttpParams) {
-    return this.http
-      .post(this.urlServer + ruta, 
-        body, {params: parametros});
-  }
-
-}
-=======
   
->>>>>>> c5296e6193de53d488006be53c8b7a8fcd4f66b5

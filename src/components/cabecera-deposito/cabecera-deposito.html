@@ -1,0 +1,41 @@
+<div class="container">
+  <!-- nav de menu -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" id="botonopera" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" value="hola">
+          <span class="sr-only">Toggle navigation </span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <p class="navbar-brand ">
+          <strong style="color: rgb(0,64,138) ">Menú Operador</strong>
+        </p>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse" role="tablist">
+        <ul class="nav navbar-nav ">
+          <li>
+            <a data-toggle="tab" role="tab" href="#cupoid" (click)="mosBarra(false)" aria-expanded="false" style="color: rgb(0,64,138) ">Cupo disponible</a>
+          </li>
+          <li>
+            <a data-toggle="tab" role="tab" href="#trans" (click)="mosBarra(true)" style="color: rgb(0,64,138) ">Transacciones </a>
+          </li>
+          <li>
+            <a data-toggle="tab" role="tab" href="#ayuda" (click)="mosBarra(true)" style="color: rgb(0,64,138) ">Ayuda</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a id="cerraopera" routerLink="/logout" routerLinkActive="active" style="color: rgb(0,64,138) ">Cerrar sesión
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+  <!-- /nav de menu -->
+  <app-cabecera></app-cabecera>  

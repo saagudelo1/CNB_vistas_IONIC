@@ -17,16 +17,20 @@ import { CabeceraComponent } from '../components/cabecera/cabecera';
 import { ImprimirComponent } from '../components/imprimir/imprimir';
 
 import { MyApp } from './app.component';
-import { OperatorServicesProvider } from '../providers/operator-servises/operator-services';
+import { OperatorServicesProvider } from '../providers/operator-services/operator-services';
 
 import { LoginProvider } from '../providers/login/login';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorProvider } from '../providers/interceptor/interceptor';
+import {CabeceraDepositoComponent} from '../components/cabecera-deposito/cabecera-deposito';
+import { NumeroCuentaComponent } from '../components/numero-cuenta/numero-cuenta';
+import { VerificarProvider } from '../providers/verificar/verificar';
 
 
 
 
 const routes: Routes = [
+  { path: 'deposito', component: NumeroCuentaComponent },
   { path: 'Administrador', component: MenuAdminComponent },
   { path: 'Operario', component: MenuOperadorComponent },
   { path: 'Login', component: LoginComponent },
@@ -48,7 +52,9 @@ const routes: Routes = [
     ContactoComponent,
     LogoutComponent,
     CabeceraComponent,
-    ImprimirComponent
+    ImprimirComponent,
+    NumeroCuentaComponent,
+    CabeceraDepositoComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +83,7 @@ const routes: Routes = [
       useClass: InterceptorProvider,
       multi: true
     },
+    VerificarProvider,
   ]
 })
 export class AppModule {}

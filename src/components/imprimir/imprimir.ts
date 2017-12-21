@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import{Deposito} from "./Model/Deposito";
 import { DateTime } from "ionic-angular/components/datetime/datetime";
 
 @Component({
@@ -7,17 +6,17 @@ import { DateTime } from "ionic-angular/components/datetime/datetime";
   templateUrl: "imprimir.html"
 })
 export class ImprimirComponent {
-  public deposito:Deposito;
-  public col1 = ["Número de Documento:"," Fecha y Hora:","Nombre Corresponsal:","Concepto:","Monto:","Depósito en efectivo:",
-"Monto Entregado:","Cambio:"];
-  public col2;
   
+  public col1 = ["Número de Transacción:"," Fécha y Hora:","Nombre CNB:","Número CNB:","Concepto:","Número de Cuenta:",
+"Nombre del Cliente:","Monto Depositado:","Monto Entregado","Cambio"];
+  public col2; 
 
- 
-
+  
   constructor() {
 
-    this.deposito = new Deposito( "0001", new Date("dd/MM/yyyy").toString() , "Ahorros", 123456789, 10000, 123456, 123);
+    let Deposito:JSON = JSON.parse(localStorage.getItem("Deposito"));
+    console.log("Los datos del depósito son: ", Deposito);
+    
     this.col2 = ["1234567890", (new Date().getDate()) + "/" +(new Date().getMonth()+1) + "/" +(new Date().getFullYear()) +" "+ new Date().toLocaleTimeString(), "OLA 1","Transferencia" , "$9,000.00", "$9,000.00","$10,000.00","$1,000.00"  ];  
        
 

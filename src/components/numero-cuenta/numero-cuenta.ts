@@ -22,7 +22,6 @@ export class NumeroCuentaComponent {
   validar=[false,false,false];
   errorCuenta; errorMonto; errorMontoEntregado;
   clase_cuenta; clase_monto; clase_entregado;
-  text: string;
   MostrarInfo: boolean = false;
   MostrarFormu :boolean =true;
   labelNombre; labelNumCuenta; labelMontoDepositar; labelMontoEntregado;
@@ -42,8 +41,7 @@ export class NumeroCuentaComponent {
 
   
   constructor(private _verificar: VerificarProvider, private operatorServices: OperatorServicesProvider) {
-    console.log('Hello NumeroCuentaComponent Component');
-    this.text = 'Hello World';
+
   }
     
 
@@ -57,7 +55,7 @@ export class NumeroCuentaComponent {
     this._verificar.PostToMock(body)
       .subscribe(response => {
         if (response["NumeroCuenta"] == this.NumCuenta) {
-          console.log(NumeroCuentaComponent);
+         // console.log(NumeroCuentaComponent);
           this.labelNombre= response["NombreTitular"];
           this.labelNumCuenta= response["NumeroCuenta"];
           this.labelMontoDepositar= this.Monto;

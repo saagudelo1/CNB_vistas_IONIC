@@ -11,9 +11,14 @@ import { Observable } from 'rxjs/Observable';
 export class InterceptorProvider implements HttpInterceptor {
   constructor() { }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    let auth;
+    if (localStorage.getItem("access_token") == undefined)
+      auth = "Basic YmFuaXN0bW9BVE06Y25ic2VjcmV0QVRN";
+      else
+      auth = "bearer " + localStorage.getItem("access_token");
     request = request.clone({
       setHeaders: {
-        "Authorization": "Basic YmFuaXN0bW9BVE06Y25ic2VjcmV0QVRN",
+        "Authorization": auth,
         "Content-Type": "application/json"
 
       }

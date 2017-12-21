@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http/src/params';
 import { Observable } from 'rxjs/Observable';
@@ -11,17 +11,18 @@ import { Observable } from 'rxjs/Observable';
 */
 @Injectable()
 export class LoginProvider {
-  
-    constructor(public http: HttpClient) {
-    }
-  
-    private urlServer: String = "https://4jctek2o4d.execute-api.us-east-2.amazonaws.com";
-  
-    PostToServer(ruta, body, parametros: HttpParams) {
-      return this.http
-        .post(this.urlServer + ruta, 
-          body, {params: parametros, observe: "response"});
-    }
-  
+
+  constructor(public http: HttpClient) {
   }
-  
+
+  private urlServer: String = "https://0v7brt9d84.execute-api.us-west-2.amazonaws.com";
+
+  PostToServer(ruta, body, parametros: HttpParams) {
+   
+    
+    return this.http
+      .post(this.urlServer + ruta, 
+        body, {params: parametros, observe: "response"});
+  }
+
+}

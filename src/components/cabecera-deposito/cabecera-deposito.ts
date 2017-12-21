@@ -16,8 +16,7 @@ export class CabeceraDepositoComponent {
   public mostrar:boolean= false;
   
   constructor() {
-    console.log('Hello CabeceraDepositoComponent Component');
-    this.text = 'Hello World';
+
   }
 
   mosBarra(val:boolean){    

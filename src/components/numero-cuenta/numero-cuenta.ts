@@ -88,17 +88,19 @@ export class NumeroCuentaComponent {
                       }
     let cambio; //variable para hacer el cálculo del cambio
 
-    console.log("en la fucion relizar depósito")
+   
     //Llamado al método creado en el provider para consumir el microservicio
     this.operatorServices.newDeposit(bodyDeosito)
         .subscribe(response => {
-          console.log("El mensaje es: ", response.body["wsLineasMensajes"])
+          // console.log("El mensaje es: ", response.body["wsLineasMensajes"])
           if (response.body["wsLineasMensajes"] == '03') { //Se verifica la respuesta del microservicio
             alert("Depósito realizado correctamente "+response.body["wsLineasMensajes"]);
             cambio = this.Monto - this.Entregado; //se camcula el cambio
             //Llenamos el json con los datos del depósito
+            let ObjetoDate = new Date();
+            let fecha = (ObjetoDate.getDate()) + "/" + (ObjetoDate.getMonth() + 1) + "/" + (ObjetoDate.getFullYear())  + " " + (ObjetoDate.toLocaleTimeString())   
             this.datosDeposito.numeroTransaccion = response.body["wsConsecutivoTx"];
-            this.datosDeposito.fechaHora = '21/12/2017 08:08:08';
+            this.datosDeposito.fechaHora = fecha;
             this.datosDeposito.nombreCNB = 'CNB prueba';
             this.datosDeposito.numeroCNB = '00814';
             this.datosDeposito.concepto = 'Depósito en efectivo';
@@ -108,7 +110,13 @@ export class NumeroCuentaComponent {
             this.datosDeposito.montoEntregado = this.Entregado.toString();
             this.datosDeposito.cambio = cambio;
             
-            console.log("Los datos del depósito son: ", this.datosDeposito)
+            let jDeposito:string = JSON.stringify(this.datosDeposito);
+            // console.log("Los datos del depósito son: ", jDeposito);
+            localStorage.setItem("Deposito",jDeposito);
+
+            // let Deposito:JSON = JSON.parse(localStorage.getItem("Deposito"));
+            // console.log("Los datos del depósito son: ", Deposito);
+            
           }
           else{
             //Para mostrar los errores

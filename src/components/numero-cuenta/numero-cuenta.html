@@ -33,7 +33,7 @@
         <div class="form-group row  ">
           <label  for="numEntregadoValidar" class="col-sm-3 col-form-label">Monto entregado por el cliente:</label>
           <div class="col-sm-4  {{clase_entregado}}">
-            <input type="number" class="form-control" id="numEntregado" placeholder="Monto Recibido" [(ngModel)]="Entregado" name="numEntregadoValidar" #numEntregadoValidar="ngModel" (keyup)="validarEntregado(numEntregadoValidar)" required >
+            <input type="text" class="form-control" id="numEntregado" placeholder="Monto Recibido" [(ngModel)]="Entregado" name="numEntregadoValidar" #numEntregadoValidar="ngModel" (keyup)="validarEntregado(numEntregadoValidar)" required >
           </div>
         </div>
 

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CabeceraDepositoComponent } from '../cabecera-deposito/cabecera-deposito'
 import { VerificarProvider } from '../../providers/verificar/verificar';
 import { OperatorServicesProvider } from '../../providers/operator-services/operator-services';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 /**
  * Generated class for the NumeroCuentaComponent component.
@@ -40,7 +42,8 @@ export class NumeroCuentaComponent {
   }
 
   
-  constructor(private _verificar: VerificarProvider, private operatorServices: OperatorServicesProvider) {
+  constructor(private _verificar: VerificarProvider, private operatorServices: OperatorServicesProvider, private route: ActivatedRoute,
+    private router: Router) {
 
   }
     
@@ -92,7 +95,7 @@ export class NumeroCuentaComponent {
         .subscribe(response => {
           // console.log("El mensaje es: ", response.body["wsLineasMensajes"])
           if (response.body["wsLineasMensajes"] == '03') { //Se verifica la respuesta del microservicio
-            alert("Depósito realizado correctamente "+response.body["wsLineasMensajes"]);
+            // alert("Depósito realizado correctamente "+response.body["wsLineasMensajes"]);
             cambio = this.Monto - this.Entregado; //se camcula el cambio
             //Llenamos el json con los datos del depósito
             let ObjetoDate = new Date();
@@ -111,6 +114,8 @@ export class NumeroCuentaComponent {
             let jDeposito:string = JSON.stringify(this.datosDeposito);
             // console.log("Los datos del depósito son: ", jDeposito);
             localStorage.setItem("Deposito",jDeposito);
+            this.router.navigate(['/imprimir']);
+            
 
             // let Deposito:JSON = JSON.parse(localStorage.getItem("Deposito"));
             // console.log("Los datos del depósito son: ", Deposito);

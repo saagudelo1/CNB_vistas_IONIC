@@ -1,37 +1,48 @@
-import { Component } from "@angular/core";
-import{Deposito} from "./Model/Deposito";
+import { Component, OnInit } from "@angular/core";
 import { DateTime } from "ionic-angular/components/datetime/datetime";
+import { registerModeConfigs } from "ionic-angular/config/mode-registry";
 
 @Component({
   selector: "imprimir",
   templateUrl: "imprimir.html"
 })
-export class ImprimirComponent {
-  public deposito:Deposito;
-  public col1 = ["Numero de Transaccion:"," Fecha:","Hora:","Nombre del Corresponsal no Bancario:","Numero del Punto:","Nombre de la Transaccion:","Numero de la cuenta Destino:",
-"Nombre del Cliente:", "Monto del Deposito:", "Efectivo Entregado:","Cambio:"];
-  public col2;
+export class ImprimirComponent implements OnInit {
   
-
- 
-
+  public col1;
+  public col2; 
+  reimpresion:number;
+  
   constructor() {
 
-    this.deposito = new Deposito( "0001", new Date("dd/MM/yyyy").toString() , "Ahorros", 123456789, 10000, 123456, 123);
-    this.col2 = ["0001", (new Date().getDate()) + "/" +(new Date().getMonth()+1) + "/" +(new Date().getFullYear()) , new Date().toLocaleTimeString(), "OLA 1", 1, "Deposito", 123567890,"Pedro Palacio", "$9,000.00", "$10,000.00","$1,000.00"  ];    
-
-       
 
   }
   
-  public imprSelec (DatosImp)
-  {var ficha=document.getElementById(DatosImp);
-    var ventimp=window.open(' ','popimpr');
+  ngOnInit(){
+    let Deposito:JSON = JSON.parse(localStorage.getItem("Deposito"));
+    console.log("Los datos del depósito son: ", Deposito);
+    this.col1 = ["Número de Transacción:"," Fecha y Hora:","Nombre CNB:","Número CNB:","Concepto:","Número de Cuenta:",
+    "Nombre del Cliente:","Monto Depositado:","Monto Entregado:","Cambio:"];
+    this.col2 = [Deposito["numeroTransaccion"], Deposito["fechaHora"], Deposito["nombreCNB"] , Deposito["numeroCNB"], Deposito["concepto"], Deposito["numeroCuenta"], Deposito["nombreCliente"], Deposito["montoDepositado"], Deposito["montoEntregado"], Deposito["cambio"]]
+       
+    this.reimpresion = 0;
+    setTimeout(this.imprSelec,1000)
+
+    
+  }
+  public imprSelec ()
+  {var ficha=document.getElementById("DatosImp");
+    var ventimp = window.open(' ','popimpr');
+    if (ventimp == undefined){
+      alert("Por favor habilite las ventanas emergentes")
+    }
+    else
+    {
     ventimp.document.write(ficha.innerHTML);
     ventimp.print();
     ventimp.close();
+    this.reimpresion += 1;
+    }
   }
-  
-  
+ 
 }
 

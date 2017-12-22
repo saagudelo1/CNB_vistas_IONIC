@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
               case "invalid_client":
                 this.error = true;
                 break;
+
               default:
                 this.error = true;
                 alert("Unknown error");
@@ -64,30 +65,6 @@ export class LoginComponent implements OnInit {
             }
           }
           if (valid) {
-            // localStorage.setItem("user", this.username);
-            // localStorage.setItem("pass", this.password);
-            // let ruta = "/loginStage/getUserType";
-            // let body = {
-            //   "body": {
-            //     "username": this.username,
-            //     "password": this.password
-            //   }
-            // };
-            // let params = new HttpParams();
-            // this._login.PostToServer(ruta, body, params)
-            //   .subscribe(res => {
-            //     console.log();
-            //     if (res.body["UserType"] == "admin") {
-            //       this.router.navigate(['/Administrador']);
-            //     } else if (res.body["UserType"] == "operador") {
-            //       this.router.navigate(['/Operario']);
-            //     } else {
-            //       this.error = true;
-            //     }
-            //   },
-            //   err => {
-            //     alert("Error al buscar el tipo de usuario");
-            //   })
             console.log("access_token", localStorage.getItem("access_token"))
             if (this.username == "admin") {
               this.router.navigate(['/Administrador']);
@@ -99,12 +76,24 @@ export class LoginComponent implements OnInit {
 
           }
         },
-        error => {
-          alert("Error al pedir el token");
-
+       error => {
+         console.log(error.error)
+          switch (error.error["error"]) {
+            case "unauthorized_client":
+              this.error = true;
+              if (error.error["error_description"].includes("Multiple session not allowed.")) {
+                alert("El inicio de sesion no fue exitoso\nmúltiples sesiones activas no permitidas");
+              }
+              break;
+            default:
+              alert("Error al pedir el token");
+              break;
+          }
         });
     }
     else {
+      this.error = true;
+      
     }
   }
 }

@@ -26,6 +26,7 @@ export class NumeroCuentaComponent {
   clase_cuenta; clase_monto; clase_entregado;
   MostrarInfo: boolean = false;
   MostrarFormu :boolean =true;
+  MostrarFormu2 :boolean = false;
   labelNombre; labelNumCuenta; labelMontoDepositar; labelMontoEntregado;
   //Variables para guardar los datos del depósito realizado
   datosDeposito = {
@@ -62,18 +63,36 @@ export class NumeroCuentaComponent {
           this.labelNombre= response["NombreTitular"];
           this.labelNumCuenta= response["NumeroCuenta"];
           this.labelMontoDepositar= this.Monto;
-          this.labelMontoEntregado= this.Entregado;
-          this.MostrarInfo = true;
-          this.MostrarFormu=false;
+          this.MostrarFormu2 = true;
+          this.MostrarFormu=true;
+          this.MostrarInfo=false;
         } else {
           (response["error"])
-          this.MostrarInfo = false;
+          this.MostrarFormu2 = false;
+          this.MostrarInfo=false;
           this.MostrarFormu=true;
           alert("El número de cuenta no existe");
           this.error = true;
 
         }
       });
+  }
+
+  confirmarCuenta(){
+    this.MostrarFormu2 = false;
+    this.MostrarInfo = true;
+    this.MostrarFormu= false;
+    this.labelMontoEntregado= this.Entregado;
+  }
+
+  corregirCuenta(){
+    this.MostrarFormu = true;
+    this.MostrarFormu2 = false;
+    this.MostrarInfo = false;
+  }
+
+  cancelarTransaccion(){
+    this.router.navigate(['/Operario']);
   }
 
 

@@ -11,6 +11,7 @@ export class ImprimirComponent implements OnInit {
   public col1;
   public col2; 
   reimpresion:number;
+  ParaImprimir = "col-xs-4 col-sm-4 text-center";
   
   constructor() {
 
@@ -41,6 +42,7 @@ export class ImprimirComponent implements OnInit {
     ventimp.print();
     ventimp.close();
     this.reimpresion += 1;
+    this.ParaImprimir = "col-xs-6 col-sm-6 text-center";
     }
   }
  

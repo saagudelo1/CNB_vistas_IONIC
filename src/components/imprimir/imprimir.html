@@ -48,21 +48,21 @@
 
 
       <div class="row vdivide">
-        <div class="col-xs-4 col-sm-4 text-center" *ngIf="reimpresion <1">
+        <div class=" {{ParaImprimir}}" *ngIf="reimpresion <1">
           <p class=" row marged fa fa-print ImpIcono" (click)="imprSelec()" id="IconPrint"  aria-hidden="true">
           </p>
-          <p class=" text-center" style="font-size: 14px" > Reimprimir Comprobante</p>
+          <p class=" text-center" style="font-size: 12px" > Reimprimir Comprobante</p>
         </div>
-        <div class="col-xs-4 col-sm-4 text-center">
+        <div class= "{{ParaImprimir}}">
             <p class=" row marged fa fa-home icono ImpIcono"  id="IconHome"  aria-hidden="true" routerLink="/Operario" routerLinkActive="active">
             </p>
-            <p class=" text-center" style="font-size: 14px" > Finalizar Transacción</p>
+            <p class=" text-center" style="font-size: 12px" > Finalizar Transacción</p>
           </div>
 
-        <div class=" col-xs-4 col-sm-4 text-center">
+        <div class=" {{ParaImprimir}}">
           <p class="  row marged fa fa-undo ImpIcono" id="IconRevers" aria-hidden="true" routerLink="/Login" routerLinkActive="active">
           </p>
-          <p class=" text-center" style="font-size: 14px"> Reversar transacción</p>
+          <p class=" text-center" style="font-size: 12px"> Reversar transacción</p>
         </div>
       </div>
     </div>

@@ -15,16 +15,17 @@
       <div class="div" *ngIf="MostrarFormu">
         <form class="form-horizontal">
           <div class="form-group row">
-            <label for="numCuentaValidar" class="control-label col-sm-3 col-form-label">Número de Cuenta:</label>
+            <label id="lblNumCuentaValidar" class="control-label col-sm-3 col-form-label">Número de Cuenta:</label>
             <div class="col-sm-4  {{clase_cuenta}}">
-              <input type="text" class="form-control " id="numCuenta" [(ngModel)]="NumCuenta" name="numCuentaValidar" #numCuentaValidar="ngModel"
+              <input type="text" class="form-control " id="txtNumCuenta" [(ngModel)]="NumCuenta" name="numCuentaValidar" #numCuentaValidar="ngModel"
                 (keyup)="validarCuenta(numCuentaValidar)" required>
             </div>
             <div class="control-label">{{errorCuenta}}</div>
           </div>
           
           <div class="text-center">
-            <button class="btnconsul btn text-center" (click)="Consultar()" type="submit">Consultar Cuenta</button>
+            <button id="btnRegresarCuenta" class="btnconsul btn text-center" (click)="cancelarTransaccion()" type="submit" *ngIf="MostrarBoton">Regresar</button>
+            <button id="btnConsultarCuenta" class="btnconsul btn text-center" (click)="Consultar()" type="submit">Consultar Cuenta</button>
           </div>
         </form>
       </div>
@@ -33,55 +34,51 @@
         <form class="form-horizontal">
           <form>
             <div class="form-group row">
-              <label class="col-sm-6 col-xs-12 col-form-label labelTitulo">Nombre:</label>
-              <label class="col-sm-6 col-xs-12 col-form-label labelValor">{{labelNombre}}</label>
+              <label id="lblTitNombreInformacion" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Nombre:</label>
+              <label id="lblNombreInformacion" class="col-sm-6 col-xs-12 col-form-label labelValor">{{labelNombre}}</label>
             </div>
             <div class="form-group row">
-              <label class="col-sm-6 col-xs-12 col-form-label labelTitulo">Número de Cuenta:</label>
-              <label class="col-sm-6 col-xs-12 col-form-label labelValor"> {{labelNumCuenta}} </label>
+              <label id="lblTitNumeroCuentaInformacion" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Número de Cuenta:</label>
+              <label id="lblNumeroCuentaInformacion" class="col-sm-6 col-xs-12 col-form-label labelValor"> {{labelNumCuenta}} </label>
             </div>
-            <!-- <div class="form-group row">
-              <label class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto a depósitar:</label>
-              <label class="col-sm-6 col-xs-12 col-form-label labelValor">{{labelMontoDepositar}} </label>
-            </div> -->
             <div class="form-group row">
-                <label class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto del depósito:</label>
+                <label id="lblTitMontoInformacion" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto del depósito:</label>
                 <div class="col-sm-4 col-xs-12 labelValor {{clase_Monto}}">
-                  <input type="text" class="form-control" id="numMonto" [(ngModel)]="Monto" name="numMontoValidar" #numMontoValidar="ngModel"
+                  <input id="txtMontoInformacion" type="text" class="form-control" [(ngModel)]="Monto" name="numMontoValidar" #numMontoValidar="ngModel"
                     (keyup)="validarMonto(numMontoValidar)" required>
                 </div>
               </div>
           </form>
           <div class="form-group row  ">
-            <label for="numEntregadoValidar" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto entregado por el cliente:</label>
+            <label id="lblTitMontoEInformacion" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto entregado por el cliente:</label>
             <div class="col-sm-4 col-xs-12 labelValor {{clase_entregado}}">
-              <input type="text" class="form-control" id="numEntregado" [(ngModel)]="Entregado" name="numEntregadoValidar" #numEntregadoValidar="ngModel"
+              <input type="text" class="form-control" id="txtMontoEInformacion" [(ngModel)]="Entregado" name="numEntregadoValidar" #numEntregadoValidar="ngModel"
                 (keyup)="validarEntregado(numEntregadoValidar)" required>
             </div>
           </div>
           <div class="text-center btnMargin">
-            <button class="btnconsul btn text-center" (click)="cancelarTransaccion()" type="submit">Regresar</button>
-            <button class="btnconsul btn text-center" (click)="confirmarCuenta()" type="submit">Siguiente</button>
+            <button id="btnRegresarInformacion" class="btnconsul btn text-center" (click)="cancelarTransaccion()" type="submit">Regresar</button>
+            <button id="btnSiguienteInformacion" class="btnconsul btn text-center" (click)="confirmarCuenta()" type="submit">Siguiente</button>
           </div>
         </form>
       </div>
       <div class="info_cuenta" *ngIf="MostrarInfo">
         <form>
           <div class="form-group row">
-            <label class="col-sm-6 col-xs-12 col-form-label labelTitulo">Nombre:</label>
-            <label class="col-sm-6 col-xs-12 col-form-label labelValor">{{labelNombre}}</label>
+            <label id="lblTNombreConf" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Nombre:</label>
+            <label id="lblNombreConf" class="col-sm-6 col-xs-12 col-form-label labelValor">{{labelNombre}}</label>
           </div>
           <div class="form-group row">
-            <label class="col-sm-6 col-xs-12 col-form-label labelTitulo">Número de Cuenta:</label>
-            <label class="col-sm-6 col-xs-12 col-form-label labelValor" style="text-align: left"> {{labelNumCuenta}} </label>
+            <label id="lblTNumConf" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Número de Cuenta:</label>
+            <label id="lblNumConf" class="col-sm-6 col-xs-12 col-form-label labelValor" style="text-align: left"> {{labelNumCuenta}} </label>
           </div>
           <div class="form-group row">
-            <label class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto a depósitar:</label>
-            <label class="col-sm-6 col-xs-12 col-form-label labelValor" style="text-align: left">{{labelMontoDepositar}} </label>
+            <label id="lblTMontoConf" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto a depósitar:</label>
+            <label id="lblMontoConf" class="col-sm-6 col-xs-12 col-form-label labelValor" style="text-align: left">{{labelMontoDepositar | currency:'USD':true:'1.2-2'}} </label>
           </div>
           <div class="form-group row">
-            <label class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto entregado por el cliente:</label>
-            <label class="col-sm-6 col-xs-12 col-form-label labelValor" style="text-align: left">{{labelMontoEntregado}}</label>
+            <label id="lblTMontoEConf" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto entregado por el cliente:</label>
+            <label id="lblMontoEConf" class="col-sm-6 col-xs-12 col-form-label labelValor" style="text-align: left">{{labelMontoEntregado | currency:'USD':true:'1.2-2'}} </label>
           </div>
         </form>
 
@@ -91,13 +88,9 @@
 
 
         <div class="row padded" >
-            <input class="col-md-4 col-xs-4 botond btnCorregir"    type="submit"  (click)="corregir()"  value="Corregir"  >
-          <!-- <a class="btncancel btn text-center col-md-4 col-xs-4" href="/#/Operario">Cancelar</a> -->
-            <input class="col-md-4 col-xs-4 botond btnCorregir"   type="submit"  (click)="cancelarTransaccion()"  value="Cancelar"  >
-            <input class="col-md-4 col-xs-4 botond btnCorregir"    type="submit"  (click)="realizarDeposito()"  value="Ejecutar"  >
-          <!-- <div class="botond col-md-4 col-xs-4 " style="align-content: right; align-items: right" (click)="realizarDeposito()" >
-              <p class="btnCorregir">Realizar depósito</p>
-            </div> -->
+            <input id="btnCorregirDatos" class="col-md-4 col-xs-4 botond btnCorregir" type="submit"  (click)="corregir()"  value="Corregir"  >
+            <input id="btnCancelarTransaccion" class="col-md-4 col-xs-4 botond btnCorregir" type="submit"  (click)="cancelarTransaccion()"  value="Cancelar"  >
+            <input id="btnEjecutarTransaccion" class="col-md-4 col-xs-4 botond btnCorregir" type="submit"  (click)="realizarDeposito()"  value="Ejecutar"  >
         </div>
 
 

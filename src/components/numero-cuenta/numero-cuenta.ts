@@ -27,6 +27,7 @@ export class NumeroCuentaComponent {
   MostrarInfo: boolean = false;
   MostrarFormu :boolean =true;
   MostrarFormu2 :boolean = false;
+  MostrarBoton :boolean = true;
   labelNombre; labelNumCuenta; labelMontoDepositar; labelMontoEntregado;
   //Variables para guardar los datos del depósito realizado
   datosDeposito = {
@@ -62,15 +63,16 @@ export class NumeroCuentaComponent {
          // console.log(NumeroCuentaComponent);
           this.labelNombre= response["NombreTitular"];
           this.labelNumCuenta= response["NumeroCuenta"];
-          this.labelMontoDepositar= this.Monto;
           this.MostrarFormu2 = true;
           this.MostrarFormu=true;
           this.MostrarInfo=false;
+          this.MostrarBoton=false;
         } else {
           (response["error"])
           this.MostrarFormu2 = false;
           this.MostrarInfo=false;
           this.MostrarFormu=true;
+          this.MostrarBoton = true;
           alert("El número de cuenta no existe");
           this.error = true;
 
@@ -83,6 +85,7 @@ export class NumeroCuentaComponent {
     this.MostrarInfo = true;
     this.MostrarFormu= false;
     this.labelMontoEntregado= this.Entregado;
+    this.labelMontoDepositar= this.Monto;
   }
 
   corregirCuenta(){
@@ -115,7 +118,7 @@ export class NumeroCuentaComponent {
           // console.log("El mensaje es: ", response.body["wsLineasMensajes"])
           if (response.body["wsLineasMensajes"] == '03') { //Se verifica la respuesta del microservicio
             // alert("Depósito realizado correctamente "+response.body["wsLineasMensajes"]);
-            cambio = this.Monto - this.Entregado; //se camcula el cambio
+            cambio = this.Entregado - this.Monto; //se camcula el cambio
             //Llenamos el json con los datos del depósito
             let ObjetoDate = new Date();
             let fecha = (ObjetoDate.getDate()) + "/" + (ObjetoDate.getMonth() + 1) + "/" + (ObjetoDate.getFullYear())  + " " + (ObjetoDate.toLocaleTimeString())   
@@ -231,7 +234,7 @@ validarEntregado(input){
 corregir(){
 this.MostrarFormu=true;
 this.MostrarInfo=false;
-
+this.MostrarFormu2=true;
 }
 
 

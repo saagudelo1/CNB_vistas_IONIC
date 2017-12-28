@@ -22,7 +22,7 @@ export class ImprimirComponent implements OnInit {
     console.log("Los datos del depósito son: ", Deposito);
     this.col1 = ["Número de Transacción:"," Fecha y Hora:","Nombre CNB:","Número CNB:","Concepto:","Número de Cuenta:",
     "Nombre del Cliente:","Monto Depositado:","Monto Entregado:","Cambio:"];
-    this.col2 = [Deposito["numeroTransaccion"], Deposito["fechaHora"], Deposito["nombreCNB"] , Deposito["numeroCNB"], Deposito["concepto"], Deposito["numeroCuenta"], Deposito["nombreCliente"], Deposito["montoDepositado"], Deposito["montoEntregado"], Deposito["cambio"]]
+    this.col2 = [Deposito["numeroTransaccion"], Deposito["fechaHora"], Deposito["nombreCNB"] , Deposito["numeroCNB"], Deposito["concepto"], Deposito["numeroCuenta"], Deposito["nombreCliente"], "$ "+Deposito["montoDepositado"], "$ "+ Deposito["montoEntregado"], "$ "+ Deposito["cambio"]]
        
     this.reimpresion = 0;
     setTimeout(this.imprSelec,1000)

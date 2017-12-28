@@ -32,7 +32,6 @@
       <br>
       <div class="div" *ngIf="MostrarFormu2">
         <form class="form-horizontal">
-          <form>
             <div class="form-group row">
               <label id="lblTitNombreInformacion" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Nombre:</label>
               <label id="lblNombreInformacion" class="col-sm-6 col-xs-12 col-form-label labelValor">{{labelNombre}}</label>
@@ -43,17 +42,18 @@
             </div>
             <div class="form-group row">
                 <label id="lblTitMontoInformacion" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto del depósito:</label>
-                <div class="col-sm-4 col-xs-12 labelValor {{clase_Monto}}">
-                  <input id="txtMontoInformacion" type="text" class="form-control" [(ngModel)]="Monto" name="numMontoValidar" #numMontoValidar="ngModel"
-                    (keyup)="validarMonto(numMontoValidar)" required>
+                <div class="col-sm-4 col-xs-12 labelValor {{clase_Monto}} input-group">
+                  <span class="input-group-addon">$ </span>
+                  <input id="txtMontoInformacion" type="text" class="form-control" [(ngModel)]="Monto" name="numMontoValidar" #numMontoValidar="ngModel" (keyup)="ValidarMontoDeposito()" (change)="ValidarMontoDeposito()" required>
+                  
                 </div>
               </div>
-          </form>
-          <div class="form-group row  ">
+                      
+              <div class="form-group row  ">
             <label id="lblTitMontoEInformacion" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto entregado por el cliente:</label>
-            <div class="col-sm-4 col-xs-12 labelValor {{clase_entregado}}">
-              <input type="text" class="form-control" id="txtMontoEInformacion" [(ngModel)]="Entregado" name="numEntregadoValidar" #numEntregadoValidar="ngModel"
-                (keyup)="validarEntregado(numEntregadoValidar)" required>
+            <div class="col-sm-4 col-xs-12 labelValor {{clase_entregado}} input-group">
+              <span class="input-group-addon">$ </span>
+              <input type="text" class="form-control" id="txtMontoEInformacion" [(ngModel)]="Entregado" name="numEntregadoValidar" #numEntregadoValidar="ngModel" (keyup)="ValidarMontoEntregado()" (change)="ValidarMontoEntregado()" required>
             </div>
           </div>
           <div class="text-center btnMargin">
@@ -75,6 +75,7 @@
           <div class="form-group row">
             <label id="lblTMontoConf" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto a depósitar:</label>
             <label id="lblMontoConf" class="col-sm-6 col-xs-12 col-form-label labelValor" style="text-align: left">{{labelMontoDepositar | currency:'USD':true:'1.2-2'}} </label>
+            <!--{{labelMontoDepositar | currency:'USD':true:'1.2-2'}}-->
           </div>
           <div class="form-group row">
             <label id="lblTMontoEConf" class="col-sm-6 col-xs-12 col-form-label labelTitulo">Monto entregado por el cliente:</label>

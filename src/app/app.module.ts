@@ -28,7 +28,8 @@ import { VerificarProvider } from '../providers/verificar/verificar';
 import { CurrencyPipe } from '@angular/common';
 // import { NgModel } from '@angular/forms';
 
-
+import {FingerprintAIO} from '@ionic-native/fingerprint-aio';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 
 const routes: Routes = [
@@ -86,7 +87,10 @@ const routes: Routes = [
       multi: true
     },
     VerificarProvider,
+    FingerprintAIO,
+    NativeStorage,
     CurrencyPipe
+
   ]
 })
 export class AppModule {}

@@ -2,76 +2,63 @@
 
 <section id="login">
   <div class="container">
-   
-      <!--<img src="../..assets/img/logo.png" />
+
+    <!--<img src="../..assets/img/logo.png" />
       <h1 class="header1">Corresponsal No Bancario</h1>-->
-      <app-cabecera></app-cabecera>
-      <div class=" col-xs-12" >
-        <p class="header2 text-center">
-          A través de este portal usted podrá acceder a su CNB y ofrecer a sus clientes transacciones como retiro, depósito,
-          pagos y recargas
-        </p>        
+    <app-cabecera></app-cabecera>
+    <div class=" col-xs-12">
+      <p class="header2 text-center">
+        A través de este portal usted podrá acceder a su CNB y ofrecer a sus clientes transacciones como retiro, depósito, pagos
+        y recargas
+      </p>
+    </div>
+
+    <app-error *ngIf=e rror style="border: 2px solid white"></app-error>
+
+    <h3>Iniciar Sesión</h3>
+    <!--  -->
+    <div class="form-horizontal" id="login-form" autocomplete="off">
+      <div class="form-group">
+        <label for="username" class="sr-only">Usuario</label>
+        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4">
+          <input type="text" name="username" id="username" class="form-control textInputF  inputUser " placeholder="Usuario" [(ngModel)]="username">
+        </div>
       </div>
-      
-      <app-error *ngIf = error style="border: 2px solid white"></app-error>
 
-      <h3>Iniciar Sesión</h3>
-      <!--  -->
-      <div class="form-horizontal" id="login-form" autocomplete="off" >
-        <div class="form-group">
-          <label for="username" class="sr-only">Usuario</label>
-          <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4">
-            <input type="text" name="username" id="username" class="form-control textInputF  inputUser " placeholder="Usuario" [(ngModel)]="username">
-          </div>
+      <div class="form-group">
+        <label for="key" class="sr-only">Contraseña</label>
+        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4">
+          <input type="password" name="key" id="key" class="form-control textInputF inputPass " placeholder="Contraseña" [(ngModel)]="password">
         </div>
 
-        <div class="form-group">
-          <label for="key" class="sr-only">Contraseña</label>
-          <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4">
-            <input type="password" name="key" id="key" class="form-control textInputF inputPass " placeholder="Contraseña" [(ngModel)]="password">
-          </div>
-        </div>
         <div class="form-group">
             <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 col-sm-offset-4 col-md-offset-5 col-lg-offset-5" (click)="login()" id="btnLogin">          
                 <p class="btn-custom" style=" padding-top: 22px;">Ingresar</p>
                 <!-- <input type="submit" id="btn-login" style="display:none" value="Ingresar" > -->
               </div>
         </div>
-        
       </div>
-      <!--  -->
 
-      <!-- <form class="form-horizontal" role="form" (ngSubmit)="login()" method="post" id="login-form" autocomplete="off" style="border: 2px solid red">
+    </div>
+    <div class="text-center marged" *ngIf="huellaDisponible">
+    <input type="button" id="BotonHuella" class="btn-huella btn " data-toggle="modal"  data-target="#HuellaAuth" />
+    <strong>
+      <p>Ingreso con huella</p>
+  </strong>
+  </div>
+    <!--  -->
+    <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">¿Olvidó su contraseña?</a>
 
-        <br>
-        <br>
+    <a class="forget" routerLink="/Contacto" routerLinkActive="active">Contactenos</a>
+    <a class="forget" routerLink="/Operario" routerLinkActive="active">Operador</a>
 
-        <div class="form-group col-xs-12 col-sm-8 col-md-6 col-lg-4 text-center" style="border: 2px solid blue">
-          <label for="username" class="sr-only">Usuario</label>
-          <input type="text" name="username" id="username" class="form-control textInputF  inputUser " placeholder="Usuario" [(ngModel)] = "username" (change)="Cambio()">
-          
-        </div>
-        <div class="form-group col-xs-12 col-sm-8 col-md-6 col-lg-4 text-center" style="border: 2px solid blue">
-          <label for="key" class="sr-only">Contraseña</label>
-          <input type="password" name="key" id="key" class="form-control textInputF inputPass " placeholder="Contraseña" [(ngModel)] = "password" (change)="Cambio()">
-        </div>
+    <hr>
 
-        <div class="btn-custom col-md-2 col-lg-2" (click)="login()" style="border: 2px solid yellow">
-          <p class="textBtn">Ingresar</p>          
-          <input type="submit" id="btn-login" style="display:none" value="Ingresar" >
-        </div>
-      </form> -->
-      <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">¿Olvidó su contraseña?</a>
 
-      <a  class="forget" routerLink="/Contacto" routerLinkActive="active">Contactenos</a>
-      <a  class="forget" routerLink="/Operario" routerLinkActive="active">Operador</a>
-      
-      <hr>
-    
+
   </div>
   <!-- /.container -->
 </section>
-
 <!-- footer -->
 <footer id="footer">
   <div class="container text-center">
@@ -85,33 +72,111 @@
 
 
 
-<!-- <p>
-  login works!
-</p>
 
+<div class="modal fade in" style="display:block" *ngIf="!YaRegistrado && huellaDisponible" id="HuellaAuth" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="CerrarModal()">&times;</button>
+        <div class="text-center">
+          <img src="assets/img/Fingerprint.png" class="icon-cabecera">
+        </div>
+        <div class="modal-body text-center">
+          <strong>
+            <h2>Registro con huella digital</h2>
+          </strong>
+          <p>¿Deseas registrar tu huella para ingresar a la App de Corresponsal No bancario?</p>
+        </div>
+        <div class="row" style="padding:2.5% 5% 0 5%;border-top:solid 1px lightgray">
+          <div style="width:50%">
+            <button type="button" class="btn btn-default" style="width:100%" data-dismiss="modal"  (click)="CerrarModal()">Cancelar</button>
+          </div>
+          <div style="width:50%">
 
-<nav>
-  <p><a routerLink="/Operario"> link Operario</a></p>
-  <p><a routerLink="/Administrador"> link Administrador</a></p>
-  <p><a routerLink="/error"> link error</a></p>
-  <p><a routerLink="/Contacto"> link Contacto</a>  </p>
-  <p><a routerLink="/logout"> link logout</a>  </p>
+            <button type="button" class="btn btn-default" style="width:100%" data-dismiss="modal" data-toggle="modal" data-target="#Nuevo2"  (click)="CerrarModal()">Registrar Huella</button>
 
-  <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-  <span class="sr-only">Loading...</span>
-  
-  <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-  <span class="sr-only">Loading...</span>
-  
-  <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
-  <span class="sr-only">Loading...</span>
-  
-  <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
-  <span class="sr-only">Loading...</span>
-  
-  <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
-  <span class="sr-only">Loading...</span>
-  
-  
-  
-</nav> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Nuevo2" *ngIf="!YaRegistrado && huellaDisponible"  role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="text-center">
+          <img src="assets/img/Fingerprint.png" class="icon-cabecera">
+        </div>
+      </div>
+      <div class="modal-body">
+        <strong class="text-center">
+          <h2>Registro de huella digital</h2>
+        </strong>
+        <div class="form-horizontal" id="login-form" autocomplete="off">
+          <div class="form-group">
+            <label for="username" class="sr-only">Usuario</label>
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4">
+              <input type="text" name="usernameModal" id="usernameModal" class="form-control textInputF  inputUser " placeholder="Usuario" [(ngModel)]="username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="key" class="sr-only">Contraseña</label>
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4">
+              <input type="password" name="keyModal" id="keyModal" class="form-control textInputF inputPass " placeholder="Contraseña" [(ngModel)]="password">
+            </div>
+          </div>
+
+        </div>
+        <div class="row" style="padding:2.5% 5% 0 5%;border-top:solid 1px lightgray">
+          <div style="width:50%">
+            <button type="button" class="btn btn-default" style="width:100%" data-dismiss="modal">Cancelar</button>
+          </div>
+          <div style="width:50%">
+
+            <button type="button" class="btn btn-default" style="width:100%"  (click)="RegistroHuella()">Registrar Huella</button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade in" style="display:block" id="HuellaAuth" *ngIf="YaRegistrado && huellaDisponible">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <button type="button" class="close" data-dismiss="modal" (click)="CerrarModal()">&times;</button>
+        <div class="text-center">
+          <img src="assets/img/Fingerprint.png" class="icon-cabecera">
+        </div>
+      </div>
+      <div class="modal-body text-center">
+        <strong>
+          <h2>Ingreso con huella digital</h2>
+        </strong>
+        <p>Utiliza tu huella para ingresar a la App de Corresponsal No bancario.</p>
+
+      </div>
+      <div class="row" style="padding:2.5% 5% 0 5%;border-top:solid 1px lightgray">
+          <div style="width:50%">
+            <button type="button" class="btn btn-default" style="width:100%" data-dismiss="modal" (click)="CerrarModal()">Cancelar</button>
+          </div>
+          <div style="width:50%">
+
+            <button type="button" class="btn btn-default" style="width:100%" data-dismiss="modal" (click)="LoginConHuella()">Ingresar con Huella</button>
+
+          </div>
+        </div>
+    </div>
+
+  </div>
+</div>

@@ -8,6 +8,9 @@ import { ErrorComponent } from '../error/error';
 import { CabeceraComponent } from '../cabecera/cabecera';
 import { LoginProvider } from '../../providers/login/login';
 import { HttpParams } from '@angular/common/http';
+import { FingerprintAIO, FingerprintOptions } from '@ionic-native/fingerprint-aio';
+import { Platform } from 'ionic-angular';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @Component({
   selector: 'app-login',
@@ -18,18 +21,119 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   error: boolean = false;
-
+  YaRegistrado: boolean = false;
+  huellaDisponible = false;
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private _login: LoginProvider) { }
+    private _login: LoginProvider,
+    private _platform: Platform,
+    private _fingerPrint: FingerprintAIO,
+    private _nativeStorage: NativeStorage) {
+
+
+  }
 
   ngOnInit() {
+    this._nativeStorage.getItem('StoredAuth')
+      .then(
+      data => {
+        this.YaRegistrado = true;
+        this.Prueba();
+      },
+      error => {
+        this.YaRegistrado = false;
+        this.Prueba();
+      });
     localStorage.clear();
   }
 
+  CerrarModal(){
+    document.getElementById("HuellaAuth").style.display = "";
+    document.getElementById("HuellaAuth").className = "modal fade";
+  }
+  async Prueba() {
+
+    try {
+      await this._platform.ready();
+      const disp = await this._fingerPrint.isAvailable();
+      if (disp === "OK") {
+        this.huellaDisponible = true;
+      }
+      else {
+        this.huellaDisponible = false;
+
+      }
+    }
+    catch (e) {
+      this.huellaDisponible = false;
+
+    }
+  }
   /**
     * Function to validate login
     */
+  fingerPrintOptions: FingerprintOptions;
+  async RegistroHuella() {
+    this.fingerPrintOptions = {
+      clientId: 'Fingerprint-Demo',
+      clientSecret: 'password',
+      disableBackup: true
+    }
+    this.Prueba();
+    if (this.huellaDisponible) {
+      try {
+        await this._platform.ready();
+        await this._fingerPrint.show(this.fingerPrintOptions)
+        .then(result => {
+        this._nativeStorage.setItem('StoredAuth', { User: this.username, Pass: this.password }).then(
+          data => {
+            this.login();
+          },
+          error => {
+            alert(JSON.stringify(error));
+            alert("Error al registrar el usuario")
+          }
+        );
+      }).catch((error: any) => console.log("error al consultar la huella"));
+
+      }
+
+      catch (e) {
+        alert(e);
+
+      }
+    }
+  }
+
+  async LoginConHuella() {
+    this.fingerPrintOptions = {
+      clientId: "ID",
+      clientSecret: "Secret",
+      disableBackup: true
+    }
+    this.Prueba();
+    if (this.huellaDisponible) {
+      try {
+        await this._platform.ready();
+        await this._fingerPrint.show(this.fingerPrintOptions)
+      .then(result => {
+          this._nativeStorage.getItem('StoredAuth').then(
+            data => {
+              this.username = data.User;
+              this.password = data.Pass;
+              this.login();
+            },
+            error => {
+              alert("No hay usuarios registrados");
+            }
+          );
+        }).catch((error: any) => console.log("error al consultar la huella"));
+      }
+      catch (e) {
+        alert(e);
+      }
+    }
+  }
   login() {
     if (this.username == "diego" || this.username == "admin") {
       let ruta = "/loginStage/authentication/login";
@@ -76,8 +180,8 @@ export class LoginComponent implements OnInit {
 
           }
         },
-       error => {
-         console.log(error.error)
+        error => {
+          console.log(error.error)
           switch (error.error["error"]) {
             case "unauthorized_client":
               this.error = true;
@@ -93,7 +197,7 @@ export class LoginComponent implements OnInit {
     }
     else {
       this.error = true;
-      
+
     }
   }
 }

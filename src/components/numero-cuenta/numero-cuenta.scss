@@ -1,8 +1,70 @@
 
+.titulodeposito{
+    margin-top: 22px;
+    color: rgb(14, 1, 1);
+    font-size: 30px;
+}
+
+
+@media (min-width: 310px) { 
     .titulodeposito{
-        margin-top: 22px;
-        color: rgb(14, 1, 1);
+        font-size: 17px;
+        margin-top: 0px;
     }
+}
+
+@media (min-width: 410px) { 
+    .titulodeposito{
+        font-size: 26px;
+    }
+}
+
+@media (min-width: 768px) { 
+    .titulodeposito{
+        font-size: 30px;
+    }
+}
+
+
+.labelTitulo{
+    text-align: right;
+    font-size: 21px;
+    color:#000000;
+   }
+   
+.labelValor{
+   text-align: left;
+   font-size: 21px;
+}
+
+@media (min-width: 310px) { 
+    .labelTitulo, .labelValor{
+        font-size: 14px;
+        text-align: left;
+    }
+}
+
+@media (min-width: 410px) { 
+    .labelTitulo, .labelValor{
+        font-size: 19px;
+        text-align: left;
+    }
+}
+
+@media (min-width: 768px) { 
+    .labelTitulo{
+        font-size: 21px;
+        text-align: right;
+    }
+}
+
+@media (min-width: 768px) { 
+    .labelValor{
+        font-size: 21px;
+        text-align: left;
+    }
+}
+
  .centrado{
      
      margin-left: 22px;
@@ -12,6 +74,10 @@
     align-items: center;
  }
 
+.btnMargin{
+    margin-bottom: 20px;
+}
+
 .btnconsul{
 background-color: #00448d;
 color:#fff;
@@ -20,20 +86,25 @@ color:#fff;
 background-color: #ffd200;
 color:#fff;
 }
+
+
+
 .botond{
-    text-align: center;
-    text-align-last: center;
-    width: 50%;
-    height: 80px;
+    border:none;
+   // @extend .form-wrap;
+    color: $colorWhite;
+    background: url("../assets/img/fondoBoton.png");
+      
     cursor: pointer;
-    background-size: contain;
+    background-size: 60% 100%;
     background-position: center;
     background-repeat: no-repeat;
     color: white;
-    background-image: url(../assets/fondoBoton.png);
+    /*background-color: $primaryColor;*/
     -webkit-transition: background-image 0.5s; 
     transition: background-image 0.5s;
-    
+    // text-align: center;
+    // text-align-last: center;    
   }
   .botond:hover,
   .boton:focus {
@@ -42,4 +113,73 @@ color:#fff;
   transition: background-image 0.5s;
   background-image: url('../assets/fondoBotonAmarillo.png');
   }  
+
+  .botones{
+      height: auto;
+      width: 33%;
+  }
   
+  .textoDeposito{
+    text-align: center;
+    font-size: 21px;
+    color:#000000;
+    @media (min-width: 310px) { 
+        font-size: 10px;
+           
+    };
+    @media (min-width: 410px) {
+            font-size: 14px;            
+    };
+    @media (min-width: 410px) { 
+            font-size: 14px;
+    };
+ }
+
+ 
+
+
+
+@media (min-width: 768px) { 
+    .textoDeposito{
+        font-size: 21px;
+        
+    }
+}
+
+.btnCorregir{
+    font-size: 15px;
+    text-align: center;
+    height: 5em;
+    width: 33%;
+
+    @media (min-width: 310px) { 
+            font-size: 7px;
+            height: 3em;
+            margin-bottom: 10px;
+    };
+
+    @media (min-width: 410px) { 
+            font-size: 10px;
+            margin-top: 5px;
+    };
+    
+    @media (min-width: 768px) { 
+            font-size: 15px;
+            margin-top: 10px;        
+    };
+
+}
+
+
+.sinBorde:focus{
+    border:none;
+    outline: none;
+}
+
+.sinBorde{
+    width: 99%;
+    border: none;
+}
+
+
+

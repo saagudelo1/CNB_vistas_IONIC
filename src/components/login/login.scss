@@ -200,6 +200,7 @@ $rutaFuente: '../assets/fontsLogin/icomoon';
         @extend .form-wrap;
     }
     .btn-custom {
+        border:none;
         @extend .form-wrap;
         color: $colorWhite;
         background: url("../assets/img/fondoBoton.png");

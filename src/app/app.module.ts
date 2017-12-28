@@ -25,6 +25,8 @@ import { InterceptorProvider } from '../providers/interceptor/interceptor';
 import {CabeceraDepositoComponent} from '../components/cabecera-deposito/cabecera-deposito';
 import { NumeroCuentaComponent } from '../components/numero-cuenta/numero-cuenta';
 import { VerificarProvider } from '../providers/verificar/verificar';
+import { CurrencyPipe } from '@angular/common';
+// import { NgModel } from '@angular/forms';
 
 
 
@@ -84,6 +86,7 @@ const routes: Routes = [
       multi: true
     },
     VerificarProvider,
+    CurrencyPipe
   ]
 })
 export class AppModule {}

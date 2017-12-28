@@ -16,13 +16,13 @@
       <div id="navbar" class="navbar-collapse collapse" role="tablist">
         <ul class="nav navbar-nav ">
           <li>
-            <a data-toggle="tab" role="tab" href="#cupoid" (click)="mosBarra(false)" aria-expanded="false" style="color: rgb(0,64,138) ">Cupo disponible</a>
+            <a data-toggle="tab" id="cupoLink" role="tab" href="#cupoid" (click)="mosBarra(false)" aria-expanded="false" style="color: rgb(0,64,138) ">Cupo disponible</a>
           </li>
           <li>
-            <a data-toggle="tab" role="tab" href="#trans" (click)="mosBarra(true)" style="color: rgb(0,64,138) ">Transacciones </a>
+            <a data-toggle="tab" id="transactionsLink" role="tab" href="#trans" (click)="mosBarra(true)" style="color: rgb(0,64,138) ">Transacciones </a>
           </li>
           <li>
-            <a data-toggle="tab" role="tab" href="#ayuda" (click)="mosBarra(true)" style="color: rgb(0,64,138) ">Ayuda</a>
+            <a data-toggle="tab" id="helpLink" role="tab" href="#ayuda" (click)="mosBarra(true)" style="color: rgb(0,64,138) ">Ayuda</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -121,11 +121,11 @@
 
     <div class="tab-pane fade" id="trans" role="tabpanel">
       <div class="row padded contenido">
-        <div class="col-xs-12 col-sm-12 col-md-6 btn_img">
+        <div class="col-xs-12 col-sm-12 col-md-6 btn_img" routerLink="/deposito" routerLinkActive="active">
           <p>
             <span class="icon-bank-sign icon "> </span>
           </p>
-          <div class="elemento text-center" routerLink="/deposito" routerLinkActive="active">
+          <div id="transaccionDeposito" class="elemento text-center">
             Depósito
           </div>
         </div>

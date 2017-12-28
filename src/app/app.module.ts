@@ -26,8 +26,8 @@ import {CabeceraDepositoComponent} from '../components/cabecera-deposito/cabecer
 import { NumeroCuentaComponent } from '../components/numero-cuenta/numero-cuenta';
 import { VerificarProvider } from '../providers/verificar/verificar';
 
-import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth';
-
+import {FingerprintAIO} from '@ionic-native/fingerprint-aio';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 
 const routes: Routes = [
@@ -85,7 +85,8 @@ const routes: Routes = [
       multi: true
     },
     VerificarProvider,
-    AndroidFingerprintAuth
+    FingerprintAIO,
+    NativeStorage
   ]
 })
 export class AppModule {}

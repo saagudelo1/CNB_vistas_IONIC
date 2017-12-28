@@ -8,7 +8,27 @@ $colorGrey2: #ccc5c52b;
 $colorGreyText: #6d6d6d;
 $colorLightGray: #EEE;
 $rutaFuente: '../assets/fontsLogin/icomoon';
-
+.modal-backdrop{
+    display: block;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    background-color: #000;
+}
+.btn-huella{
+    
+    background: url(../assets/img/Fingerprint.png);
+    background-color: white;
+    background-position: center;
+    background-size: contain;
+    padding: 15% 0 15% 0;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 50%;
+}
 @font-face {
     font-family: 'icomoon';
     src:  url($rutaFuente + '.eot?z5lcxq');
